@@ -1,7 +1,9 @@
 ---
-title: "MDS Website"
+title: "Shravan Chandra"
 ---
 
-This is a Quarto website.
+![](images/profile.jpeg){width=250px}
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+My name is Shravan Chandra, from India. I did my undergrad in Electrical Engineering, and worked for 5 years at Robert Bosch. I am excited to be part of this program, and looking forward to learn all new tools and techniques associated with Data Science.
+
+Thank You!

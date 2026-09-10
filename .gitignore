@@ -2,3 +2,10 @@
 **/*.quarto_ipynb
 
 .DS_Store
+/.uvr/library/
+/.uvr/activate*
+
+uvr.*
+.Rprofile
+.uvr/
+.vscode/
