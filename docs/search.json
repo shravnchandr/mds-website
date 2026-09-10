@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "About this site"
+    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 10, 2026\n\n\nShravan Chandra\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -12,5 +12,40 @@
     "title": "Shravan Chandra",
     "section": "",
     "text": "My name is Shravan Chandra, from India. I did my undergrad in Electrical Engineering, and worked for 5 years at Robert Bosch. I am excited to be part of this program, and looking forward to learn all new tools and techniques associated with Data Science.\nThank You!"
+  },
+  {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My first weeks in MDS",
+    "section": "",
+    "text": "Orientation day on campus."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I grew up in a town called Mysore, and studied in PES University, Bangalore. After graduating, I worked in Robert Bosch for 5 years, where I worked on Anomaly Detection, before decided to continue my studies."
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About",
+    "section": "",
+    "text": "I grew up in a town called Mysore, and studied in PES University, Bangalore. After graduating, I worked in Robert Bosch for 5 years, where I worked on Anomaly Detection, before decided to continue my studies."
+  },
+  {
+    "objectID": "about.html#why-data-science",
+    "href": "about.html#why-data-science",
+    "title": "About",
+    "section": "Why data science",
+    "text": "Why data science\nI was inspired by projects like Project Euphonia, Project Relate, and Project Lookout. I believe the most meaningful ML problems are the ones that help people communicate, move, and live more independently."
+  },
+  {
+    "objectID": "about.html#outside-of-data-science",
+    "href": "about.html#outside-of-data-science",
+    "title": "About",
+    "section": "Outside of data science",
+    "text": "Outside of data science\nI love to travel and explore new places. I like trying new restuarants, and explore new cuisines. I am learning to play Guitar."
   }
 ]

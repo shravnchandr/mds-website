@@ -1,0 +1,7 @@
+---
+title: "My first weeks in MDS"
+author: "Shravan Chandra"
+date: 2026-09-10
+---
+
+![Orientation day on campus.](orientation.jpeg){width=250px}

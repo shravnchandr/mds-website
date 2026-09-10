@@ -2,4 +2,15 @@
 title: "About"
 ---
 
-About this site
+## Background
+
+I grew up in a town called Mysore, and studied in PES University, Bangalore. After graduating, I worked in Robert Bosch for 5 years, where I worked on Anomaly Detection, before decided to continue my studies.
+
+
+## Why data science
+
+I was inspired by projects like Project Euphonia, Project Relate, and Project Lookout. I believe the most meaningful ML problems are the ones that help people communicate, move, and live more independently.
+
+## Outside of data science
+
+I love to travel and explore new places. I like trying new restuarants, and explore new cuisines. I am learning to play Guitar.
