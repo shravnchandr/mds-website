@@ -163,13 +163,13 @@ body {
   color: var(--ocean-950);
 }
 
-#quarto-content {
+/* #quarto-content {
   max-width: 1180px;
 }
 
 main.content {
   max-width: 900px;
-}
+} */
 
 /* ============================= */
 /* Typography                    */
@@ -360,8 +360,13 @@ a:hover {
   font-weight: 720;
 }
 
+#quarto-margin-sidebar {
+  padding-top: 1.5rem;
+}
+
 #TOC {
   border-left: 0;
+  padding-left: 1rem;
 }
 
 #TOC a {
