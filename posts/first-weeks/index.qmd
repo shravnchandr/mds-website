@@ -5,13 +5,13 @@ author: "Shravan Chandra"
 date: 2026-08-30
 ---
 
-![](media/orientation.jpeg){width=400px fig-align="center"}
-
 My first week in MDS was quite interesting.
 
 I had been preparing for this move for months. Then, quite suddenly, I was sitting on a plane at 3 in the morning wondering how exactly I had agreed to do this.
 
 ## The Flight
+
+![](media/flight.jpeg){width=400px fig-align="center"}
 
 I started my flight from India at 3 in the morning.
 
@@ -41,6 +41,8 @@ I'm a big fan of beaches, so about ten minutes after checking in, I headed out t
 
 I ended up standing there for a while, watching the waves wash over my feet with the evening sun coming down.
 
+![](media/beach.jpeg){width=400px fig-align="center"}
+
 After spending roughly a day travelling halfway across the world, it was probably the first moment when it actually felt like:
 
 **Okay. I'm here.**
@@ -62,6 +64,8 @@ I'm looking forward to getting to know everyone better over the next year.
 ::: {.callout-tip}
 **Data Science lesson #1:** Meeting an entire cohort at once produces a rather impressive amount of unstructured data.
 :::
+
+![](media/orientation.jpeg){width=400px fig-align="center"}
 
 ## So far
 
