@@ -2,15 +2,94 @@
 title: "About"
 ---
 
-## Background
+## A somewhat abbreviated version of my life
 
-I grew up in a town called Mysore, and studied in PES University, Bangalore. After graduating, I worked in Robert Bosch for 5 years, where I worked on Anomaly Detection, before decided to continue my studies.
+### Mysore
 
+I grew up in Mysore, India, where I developed an appreciation for good food, travel, and probably an unhealthy attachment to Mysore Pak.
+
+### Bangalore
+
+I studied Electrical Engineering at PES University in Bangalore.
+
+### Bosch
+
+After graduating, I spent five years at Bosch as a Senior ML Engineer, working on anomaly detection, computer vision, and NLP.
+
+Five years of teaching machines to detect unusual things seemed like a reasonable amount of time to spend thinking about what I wanted to do next.
+
+### Vancouver
+
+I decided to continue my studies and moved to Canada to start the **Master of Data Science at UBC**.
+
+So, after five years of industry experience, I voluntarily went back to school.
+
+This seemed like a good idea at the time.
 
 ## Why data science
 
-I was inspired by projects like Project Euphonia, Project Relate, and Project Lookout. I believe the most meaningful ML problems are the ones that help people communicate, move, and live more independently.
+I was inspired by projects such as **Project Euphonia, Project Relate, and Project Lookout**.
 
-## Outside of data science
+What I find particularly interesting about these projects is that the technology isn't the end goal. The goal is to help people communicate, move, and live more independently.
 
-I love to travel and explore new places. I like trying new restuarants, and explore new cuisines. I am learning to play Guitar.
+That's the kind of ML work I want to keep doing.
+
+Accessibility is the thread that runs through most of the problems I want to work on: using technology to make everyday systems more useful and inclusive for more people.
+
+## When I'm not doing ML
+
+### 🌍 Travel
+
+I love travelling and exploring new places. I'm particularly interested in experiencing a place rather than simply checking its landmarks off a list.
+
+Getting lost somewhere interesting is generally preferable to following a perfectly optimized itinerary.
+
+### 🍜 Food
+
+I like trying new restaurants and exploring different cuisines.
+
+I consider this research.
+
+The methodology is mostly eating.
+
+### 🎸 Guitar
+
+I'm currently learning to play guitar.
+
+Progress so far: enough to make the neighbours aware that I am learning guitar.
+
+The long-term objective is to eventually produce something that sounds intentional.
+
+### 🏖️ Vancouver
+
+I've only recently moved to Vancouver, but the combination of mountains, ocean, beaches, and city life has made it a pretty easy place to like.
+
+I'm also still collecting evidence on whether I can survive the weather.
+
+## Things I'm always happy to talk about
+
+If you want to start a conversation, any of these are reasonably safe bets:
+
+- Accessibility and AI
+- Computer vision
+- NLP
+- Interesting ML projects
+- Data science
+- Travel
+- Food
+- Vancouver
+- Guitar
+- Beaches
+- Why a model suddenly decided to behave differently
+
+## One final data point
+
+I'm currently trying to learn a lot of new things at once.
+
+Some of them are intentional.
+
+Some of them are happening because I moved to a new country.
+
+And some of them are happening because I bought a guitar.
+
+We'll see how the experiment goes.

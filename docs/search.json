@@ -4,48 +4,132 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 10, 2026\n\n\nShravan Chandra\n\n\n\n\n\nNo matching items"
+    "text": "A Perfect Day in Vancouver\n\n\nStanley Park, sea lions, a bird’s-eye view, and a beer to end it all\n\n\n\n\n\n\n\n\nSep 6, 2026\n\n\nShravan Chandra\n\n\n\n\n\n\n\n\n\n\n\n\nMy First Week in MDS\n\n\nFlights, beaches, and a birthday across time zones\n\n\n\n\n\n\n\n\nAug 30, 2026\n\n\nShravan Chandra\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "index.html#currently",
+    "href": "index.html#currently",
     "title": "Shravan Chandra",
-    "section": "",
-    "text": "My name is Shravan Chandra, from India. I did my undergrad in Electrical Engineering, and worked for 5 years at Robert Bosch. I am excited to be part of this program, and looking forward to learn all new tools and techniques associated with Data Science.\nThank You!"
+    "section": "Currently",
+    "text": "Currently\n📍 Living: Vancouver, Canada\n🎓 Studying: Master of Data Science at UBC\n💻 Learning: New tools, techniques, and ways of thinking about data\n🎸 Learning badly: Guitar\n🍜 Exploring: Vancouver’s food scene\n🏖️ Looking for: Beaches whenever the weather cooperates\nThe first two are going reasonably well. The third is under investigation."
+  },
+  {
+    "objectID": "index.html#from-the-blog",
+    "href": "index.html#from-the-blog",
+    "title": "Shravan Chandra",
+    "section": "From the blog",
+    "text": "From the blog\nI use the blog to document some of the things I get up to — particularly during my MDS year.\n\nMy First Week in MDS — flights, beaches, orientation, and a birthday across time zones.\nA Perfect Day in Vancouver — one very good day exploring the city.\n\nAbout me\nRead the blog"
   },
   {
     "objectID": "posts/first-weeks/index.html",
     "href": "posts/first-weeks/index.html",
-    "title": "My first weeks in MDS",
+    "title": "My First Week in MDS",
     "section": "",
-    "text": "Orientation day on campus."
+    "text": "My first week in MDS was quite interesting.\nI had been preparing for this move for months. Then, quite suddenly, I was sitting on a plane at 3 in the morning wondering how exactly I had agreed to do this."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html#the-flight",
+    "href": "posts/first-weeks/index.html#the-flight",
+    "title": "My First Week in MDS",
+    "section": "The Flight",
+    "text": "The Flight\nI started my flight from India at 3 in the morning.\nTwenty hours of travelling, a 4-hour layover in Frankfurt, and several attempts at sleeping later, I landed in Vancouver.\nIt was 3 in the afternoon.\nApparently, when you cross enough time zones, your birthday starts behaving like a distributed system.\n\n\n\n\n\n\nNote\n\n\n\nLongest birthday ever: Landing day happened to be my birthday. Crossing that many time zones gave me the longest birthday of my life.\nAt this point, I had been awake for approximately 47 years, although the exact number is still pending validation.\n\n\nThe slightly strange part was that despite leaving India at 3 AM and travelling for most of the day, Vancouver greeted me with another 3 PM.\nMy body, meanwhile, had stopped participating in the experiment."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html#jericho-beach",
+    "href": "posts/first-weeks/index.html#jericho-beach",
+    "title": "My First Week in MDS",
+    "section": "Jericho Beach",
+    "text": "Jericho Beach\nI stayed in a hostel near Jericho Beach for the first week.\nThis turned out to be an excellent decision.\nI’m a big fan of beaches, so about ten minutes after checking in, I headed out to see it for myself.\nI ended up standing there for a while, watching the waves wash over my feet with the evening sun coming down.\nAfter spending roughly a day travelling halfway across the world, it was probably the first moment when it actually felt like:\nOkay. I’m here.\nAnd then I remembered I had to figure out where I was going to buy groceries."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html#orientation",
+    "href": "posts/first-weeks/index.html#orientation",
+    "title": "My First Week in MDS",
+    "section": "Orientation",
+    "text": "Orientation\nThe next day, I attended the MDS Orientation.\nAfter travelling from India, waking up in a new country, and spending the previous day contemplating the meaning of time, suddenly being surrounded by a room full of people who were all about to spend the next year doing the same program was a little surreal.\nI met a lot of new people, and one of the things I enjoyed most was hearing everyone’s stories — where they came from, what they had been doing before MDS, and what brought them here.\nThere was a surprisingly large amount of interesting life experience packed into one cohort.\nI’m looking forward to getting to know everyone better over the next year.\n\n\n\n\n\n\nTip\n\n\n\nData Science lesson #1: Meeting an entire cohort at once produces a rather impressive amount of unstructured data."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html#so-far",
+    "href": "posts/first-weeks/index.html#so-far",
+    "title": "My First Week in MDS",
+    "section": "So far",
+    "text": "So far\nOne week in, and the experiment has started.\nI’ve moved to a new country, started a new degree, met a lot of new people, found a beach within ten minutes of my hostel, and somehow managed to have a birthday that lasted significantly longer than intended.\nNot a bad first week.\nNow I just have to survive the rest of the program.\nAnd Vancouver winter.\nThose are two separate problems."
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html",
+    "href": "posts/vancouver-day-out/index.html",
+    "title": "A Perfect Day in Vancouver",
+    "section": "",
+    "text": "I’d only been in Vancouver for a couple of weeks, so I decided to conduct a fairly ambitious experiment: how much of the city could I see in a single day?\nThe answer turned out to be quite a lot — although my feet had a different opinion by the end.\nI somehow managed to fit a forest, an ocean, a skyline, and a pint of beer into one day, all before sunset."
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html#stanley-park",
+    "href": "posts/vancouver-day-out/index.html#stanley-park",
+    "title": "A Perfect Day in Vancouver",
+    "section": "Stanley Park",
+    "text": "Stanley Park\nFirst stop: Stanley Park.\nI’d heard it was big, but walking into it still caught me off guard — massive trees on one side, the ocean on the other, and a seawall that just keeps going.\nI spent the morning wandering the trails, half expecting to see a bear. I didn’t — thankfully, or unfortunately, depending on how brave I was feeling that day.\n\n\n\n\n\n\nTip\n\n\n\nIf you’re doing this in one day like I did, start at Stanley Park early. It’s very easy to lose track of time here.\n\n\n\n\n\n\n\nOne of the things I liked most was how quickly the scenery changed. One minute I was surrounded by trees, and the next I was looking out over the water with downtown in the distance.\nHaving only recently moved here, it was one of those moments where Vancouver started to feel a little less like a place I’d moved to and a little more like a place I was beginning to know."
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html#vancouver-aquarium",
+    "href": "posts/vancouver-day-out/index.html#vancouver-aquarium",
+    "title": "A Perfect Day in Vancouver",
+    "section": "Vancouver Aquarium",
+    "text": "Vancouver Aquarium\nFrom the park, it was a short walk to the Vancouver Aquarium.\nThe sea otters were doing their absolute best to steal the show, and, frankly, they had no competition. I probably spent twenty minutes just watching them float around.\nThey appeared to have mastered the art of having absolutely nowhere else to be.\nIt’s a good reminder of how much marine life is sitting right off the coast here."
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html#vancouver-lookout",
+    "href": "posts/vancouver-day-out/index.html#vancouver-lookout",
+    "title": "A Perfect Day in Vancouver",
+    "section": "Vancouver Lookout",
+    "text": "Vancouver Lookout\nBy the afternoon, I made my way downtown to the Vancouver Lookout for a completely different perspective — literally.\nSeeing the whole city laid out from up there, with the mountains in the background and the water on every side, made it click just how much Vancouver is shaped by its geography.\nAfter seeing the city from ground level all morning, it was nice to finally see what all the walking had added up to.\nWorth the elevator ride up."
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html#gastown",
+    "href": "posts/vancouver-day-out/index.html#gastown",
+    "title": "A Perfect Day in Vancouver",
+    "section": "Gastown",
+    "text": "Gastown\nBy this point, I had walked enough that my feet had started submitting complaints.\nSo I ended the day exactly the way you’re supposed to end a good day of exploring: a beer in Gastown.\nCobblestone streets, the steam clock doing its thing, and a cold drink after a full day of walking — a solid way to close out my first real tour of the city.\n\n\n\n\nFour stops, one day, and I think I understand Vancouver a little better now.\nI’m still very new to the city, but one thing I’ve already noticed is how easy it is to go from forest to ocean to skyline to historic neighbourhood without really feeling like you’ve left the city at all.\nThere are still plenty of places I haven’t seen, which is probably a good thing.\nMy feet may disagree, but I think I’m going to like it here."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "I grew up in a town called Mysore, and studied in PES University, Bangalore. After graduating, I worked in Robert Bosch for 5 years, where I worked on Anomaly Detection, before decided to continue my studies."
+    "text": "I grew up in Mysore, India, where I developed an appreciation for good food, travel, and probably an unhealthy attachment to Mysore Pak.\n\n\n\nI studied Electrical Engineering at PES University in Bangalore.\n\n\n\nAfter graduating, I spent five years at Bosch as a Senior ML Engineer, working on anomaly detection, computer vision, and NLP.\nFive years of teaching machines to detect unusual things seemed like a reasonable amount of time to spend thinking about what I wanted to do next.\n\n\n\nI decided to continue my studies and moved to Canada to start the Master of Data Science at UBC.\nSo, after five years of industry experience, I voluntarily went back to school.\nThis seemed like a good idea at the time."
   },
   {
-    "objectID": "about.html#background",
-    "href": "about.html#background",
+    "objectID": "about.html#a-somewhat-abbreviated-version-of-my-life",
+    "href": "about.html#a-somewhat-abbreviated-version-of-my-life",
     "title": "About",
     "section": "",
-    "text": "I grew up in a town called Mysore, and studied in PES University, Bangalore. After graduating, I worked in Robert Bosch for 5 years, where I worked on Anomaly Detection, before decided to continue my studies."
+    "text": "I grew up in Mysore, India, where I developed an appreciation for good food, travel, and probably an unhealthy attachment to Mysore Pak.\n\n\n\nI studied Electrical Engineering at PES University in Bangalore.\n\n\n\nAfter graduating, I spent five years at Bosch as a Senior ML Engineer, working on anomaly detection, computer vision, and NLP.\nFive years of teaching machines to detect unusual things seemed like a reasonable amount of time to spend thinking about what I wanted to do next.\n\n\n\nI decided to continue my studies and moved to Canada to start the Master of Data Science at UBC.\nSo, after five years of industry experience, I voluntarily went back to school.\nThis seemed like a good idea at the time."
   },
   {
     "objectID": "about.html#why-data-science",
     "href": "about.html#why-data-science",
     "title": "About",
     "section": "Why data science",
-    "text": "Why data science\nI was inspired by projects like Project Euphonia, Project Relate, and Project Lookout. I believe the most meaningful ML problems are the ones that help people communicate, move, and live more independently."
+    "text": "Why data science\nI was inspired by projects such as Project Euphonia, Project Relate, and Project Lookout.\nWhat I find particularly interesting about these projects is that the technology isn’t the end goal. The goal is to help people communicate, move, and live more independently.\nThat’s the kind of ML work I want to keep doing.\nAccessibility is the thread that runs through most of the problems I want to work on: using technology to make everyday systems more useful and inclusive for more people."
   },
   {
-    "objectID": "about.html#outside-of-data-science",
-    "href": "about.html#outside-of-data-science",
+    "objectID": "about.html#when-im-not-doing-ml",
+    "href": "about.html#when-im-not-doing-ml",
     "title": "About",
-    "section": "Outside of data science",
-    "text": "Outside of data science\nI love to travel and explore new places. I like trying new restuarants, and explore new cuisines. I am learning to play Guitar."
+    "section": "When I’m not doing ML",
+    "text": "When I’m not doing ML\n\n🌍 Travel\nI love travelling and exploring new places. I’m particularly interested in experiencing a place rather than simply checking its landmarks off a list.\nGetting lost somewhere interesting is generally preferable to following a perfectly optimized itinerary.\n\n\n🍜 Food\nI like trying new restaurants and exploring different cuisines.\nI consider this research.\nThe methodology is mostly eating.\n\n\n🎸 Guitar\nI’m currently learning to play guitar.\nProgress so far: enough to make the neighbours aware that I am learning guitar.\nThe long-term objective is to eventually produce something that sounds intentional.\n\n\n🏖️ Vancouver\nI’ve only recently moved to Vancouver, but the combination of mountains, ocean, beaches, and city life has made it a pretty easy place to like.\nI’m also still collecting evidence on whether I can survive the weather."
+  },
+  {
+    "objectID": "about.html#things-im-always-happy-to-talk-about",
+    "href": "about.html#things-im-always-happy-to-talk-about",
+    "title": "About",
+    "section": "Things I’m always happy to talk about",
+    "text": "Things I’m always happy to talk about\nIf you want to start a conversation, any of these are reasonably safe bets:\n\nAccessibility and AI\nComputer vision\nNLP\nInteresting ML projects\nData science\nTravel\nFood\nVancouver\nGuitar\nBeaches\nWhy a model suddenly decided to behave differently"
+  },
+  {
+    "objectID": "about.html#one-final-data-point",
+    "href": "about.html#one-final-data-point",
+    "title": "About",
+    "section": "One final data point",
+    "text": "One final data point\nI’m currently trying to learn a lot of new things at once.\nSome of them are intentional.\nSome of them are happening because I moved to a new country.\nAnd some of them are happening because I bought a guitar.\nWe’ll see how the experiment goes."
   }
 ]
