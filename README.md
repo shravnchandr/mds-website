@@ -90,7 +90,7 @@ Post-specific images and video are kept alongside the post source in its `media/
 
 ## Styling
 
-The site uses `m3e.css` for a Material 3 Expressive-inspired visual language, **created using ChatGPT**.
+The site uses `m3e.css` for a Material 3 Expressive-inspired visual language, **created with help of ChatGPT**.
 
 The design direction is intentionally more playful than a standard Material implementation, using:
 
