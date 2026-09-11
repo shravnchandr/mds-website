@@ -2,6 +2,7 @@
 title: "About"
 ---
 
+
 ## A somewhat abbreviated version of my life
 
 ### Mysore
@@ -29,6 +30,10 @@ This seemed like a good idea at the time.
 ## Why data science
 
 I was inspired by projects such as **Project Euphonia, Project Relate, and Project Lookout**.
+
+::: {style="text-align: center;"}
+{{< video https://youtu.be/OAdegPmkK-o width="600px" height="300px" >}}
+:::
 
 What I find particularly interesting about these projects is that the technology isn't the end goal. The goal is to help people communicate, move, and live more independently.
 
