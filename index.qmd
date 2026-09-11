@@ -3,7 +3,8 @@ title: "Shravan Chandra"
 ---
 
 
-![](images/profile.jpeg){width=250px fig-align="center"}
+
+![Photo of ME](images/profile.jpeg){width=250px fig-align="center"}
 
 # Hi, I'm Shravan.
 

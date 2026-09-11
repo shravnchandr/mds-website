@@ -3,6 +3,7 @@ title: "About"
 ---
 
 
+
 ## A somewhat abbreviated version of my life
 
 ### Mysore
@@ -76,13 +77,9 @@ I'm also still collecting evidence on whether I can survive the weather.
 If you want to start a conversation, any of these are reasonably safe bets:
 
 - Accessibility and AI
-- Computer vision
-- NLP
 - Interesting ML projects
-- Data science
 - Travel
 - Food
-- Vancouver
 - Guitar
 - Beaches
 - Why a model suddenly decided to behave differently

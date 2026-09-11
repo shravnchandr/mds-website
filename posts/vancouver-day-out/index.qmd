@@ -5,6 +5,7 @@ author: "Shravan Chandra"
 date: 2026-09-06
 ---
 
+
 I'd only been in Vancouver for a couple of weeks, so I decided to conduct a fairly ambitious experiment: how much of the city could I see in a single day?
 
 The answer turned out to be quite a lot — although my feet had a different opinion by the end.
@@ -23,7 +24,7 @@ I spent the morning wandering the trails, half expecting to see a bear. I didn't
 If you're doing this in one day like I did, start at Stanley Park early. It's very easy to lose track of time here.
 :::
 
-![](media/downtown.jpeg){width=400px fig-align="center"}
+![View from Stanley Park](media/downtown.jpeg){width=400px fig-align="center"}
 
 One of the things I liked most was how quickly the scenery changed. One minute I was surrounded by trees, and the next I was looking out over the water with downtown in the distance.
 
@@ -39,7 +40,7 @@ They appeared to have mastered the art of having absolutely nowhere else to be.
 
 It's a good reminder of how much marine life is sitting right off the coast here.
 
-![](media/aquarium.jpeg){width=400px fig-align="center"}
+![Otters at Stanley Park Aquarium](media/aquarium.jpeg){width=400px fig-align="center"}
 
 ## Vancouver Lookout
 
@@ -51,7 +52,7 @@ After seeing the city from ground level all morning, it was nice to finally see 
 
 Worth the elevator ride up.
 
-![](media/lookout.jpeg){width=400px fig-align="center"}
+![View from Vancouver Lookout](media/lookout.jpeg){width=400px fig-align="center"}
 
 ## Gastown
 
