@@ -4,6 +4,7 @@ title: "Shravan Chandra"
 
 
 
+
 ![Photo of ME](images/profile.jpeg){width=250px fig-align="center"}
 
 # Hi, I'm Shravan.
@@ -32,7 +33,7 @@ The first two are going reasonably well. The third is under investigation.
 I use the blog to document some of the things I get up to — particularly during my MDS year.
 
 - **My First Week in MDS** — flights, beaches, orientation, and a birthday across time zones.
-- **A Perfect Day in Vancouver** — one very good day exploring the city.
+- **A Day Out in Vancouver** — one very good day exploring the city.
 
 [About me](about.qmd)
 

@@ -1,9 +1,10 @@
 ---
-title: "A Perfect Day in Vancouver"
+title: "A Day Out in Vancouver"
 subtitle: "Stanley Park, sea lions, a bird's-eye view, and a beer to end it all"
 author: "Shravan Chandra"
 date: 2026-09-06
 ---
+
 
 
 I'd only been in Vancouver for a couple of weeks, so I decided to conduct a fairly ambitious experiment: how much of the city could I see in a single day?
