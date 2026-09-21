@@ -85,12 +85,6 @@ Rather than just calculating the average runtime for each genre, I'm using a box
 
 The ordering is based on the median runtime, so the genres at the top of the chart have the highest typical runtime in this dataset.
 
-There is also a small bit of data wrangling happening before we get to the plot.
-
-`separate_rows()` takes a cell containing multiple genres and turns it into multiple rows. So a movie tagged as `Action, Adventure, Sci-Fi` becomes three observations: one for Action, one for Adventure, and one for Sci-Fi.
-
-This is useful, but it also changes how we need to interpret the resulting data. A movie belonging to three genres is now represented in all three groups. The genres therefore aren't independent categories.
-
 I also filtered out genres with fewer than 10 movies. There isn't much point in making strong visual comparisons for a genre represented by only a handful of observations.
 
 The interesting part of the plot isn't necessarily which genre has the single longest runtime. It's the **spread** within each genre.

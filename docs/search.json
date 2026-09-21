@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "A Day Out in Vancouver\n\n\nStanley Park, sea lions, a bird’s-eye view, and a beer to end it all\n\n\n\n\n\n\n\n\nSep 6, 2026\n\n\nShravan Chandra\n\n\n\n\n\n\n\n\n\n\n\n\nMy First Week in MDS\n\n\nFlights, beaches, and a birthday across time zones\n\n\n\n\n\n\n\n\nAug 30, 2026\n\n\nShravan Chandra\n\n\n\n\n\nNo matching items"
+    "text": "A Little Analysis with Python\n\n\nSome movies, some numbers, and a bit of Python\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nShravan Chandra\n\n\n\n\n\n\n\n\n\n\n\n\nA Little Analysis with R\n\n\nSome movies, some numbers, and a bit of R\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nShravan Chandra\n\n\n\n\n\n\n\n\n\n\n\n\nA Day Out in Vancouver\n\n\nStanley Park, sea lions, a bird’s-eye view, and a beer to end it all\n\n\n\n\n\n\n\n\nSep 6, 2026\n\n\nShravan Chandra\n\n\n\n\n\n\n\n\n\n\n\n\nMy First Week in MDS\n\n\nFlights, beaches, and a birthday across time zones\n\n\n\n\n\n\n\n\nAug 30, 2026\n\n\nShravan Chandra\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -26,6 +26,41 @@
     "title": "Shravan Chandra",
     "section": "From the blog",
     "text": "From the blog\nI use the blog to document some of the things I get up to — particularly during my MDS year.\n\nMy First Week in MDS — flights, beaches, orientation, and a birthday across time zones.\nA Day Out in Vancouver — one very good day exploring the city.\n\nAbout me\nRead the blog"
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html",
+    "href": "posts/vancouver-day-out/index.html",
+    "title": "A Day Out in Vancouver",
+    "section": "",
+    "text": "I’d only been in Vancouver for a couple of weeks, so I decided to conduct a fairly ambitious experiment: how much of the city could I see in a single day?\nThe answer turned out to be quite a lot — although my feet had a different opinion by the end.\nI somehow managed to fit a forest, an ocean, a skyline, and a pint of beer into one day, all before sunset."
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html#stanley-park",
+    "href": "posts/vancouver-day-out/index.html#stanley-park",
+    "title": "A Day Out in Vancouver",
+    "section": "Stanley Park",
+    "text": "Stanley Park\nFirst stop: Stanley Park.\nI’d heard it was big, but walking into it still caught me off guard — massive trees on one side, the ocean on the other, and a seawall that just keeps going.\nI spent the morning wandering the trails, half expecting to see a bear. I didn’t — thankfully, or unfortunately, depending on how brave I was feeling that day.\n\n\n\n\n\n\nTip\n\n\n\nIf you’re doing this in one day like I did, start at Stanley Park early. It’s very easy to lose track of time here.\n\n\n\n\n\nView from Stanley Park\n\n\nOne of the things I liked most was how quickly the scenery changed. One minute I was surrounded by trees, and the next I was looking out over the water with downtown in the distance.\nHaving only recently moved here, it was one of those moments where Vancouver started to feel a little less like a place I’d moved to and a little more like a place I was beginning to know."
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html#vancouver-aquarium",
+    "href": "posts/vancouver-day-out/index.html#vancouver-aquarium",
+    "title": "A Day Out in Vancouver",
+    "section": "Vancouver Aquarium",
+    "text": "Vancouver Aquarium\nFrom the park, it was a short walk to the Vancouver Aquarium.\nThe sea otters were doing their absolute best to steal the show, and, frankly, they had no competition. I probably spent twenty minutes just watching them float around.\nThey appeared to have mastered the art of having absolutely nowhere else to be.\nIt’s a good reminder of how much marine life is sitting right off the coast here.\n\n\n\nOtters at Stanley Park Aquarium"
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html#vancouver-lookout",
+    "href": "posts/vancouver-day-out/index.html#vancouver-lookout",
+    "title": "A Day Out in Vancouver",
+    "section": "Vancouver Lookout",
+    "text": "Vancouver Lookout\nBy the afternoon, I made my way downtown to the Vancouver Lookout for a completely different perspective — literally.\nSeeing the whole city laid out from up there, with the mountains in the background and the water on every side, made it click just how much Vancouver is shaped by its geography.\nAfter seeing the city from ground level all morning, it was nice to finally see what all the walking had added up to.\nWorth the elevator ride up.\n\n\n\nView from Vancouver Lookout"
+  },
+  {
+    "objectID": "posts/vancouver-day-out/index.html#gastown",
+    "href": "posts/vancouver-day-out/index.html#gastown",
+    "title": "A Day Out in Vancouver",
+    "section": "Gastown",
+    "text": "Gastown\nBy this point, I had walked enough that my feet had started submitting complaints.\nSo I ended the day exactly the way you’re supposed to end a good day of exploring: a beer in Gastown.\nCobblestone streets, the steam clock doing its thing, and a cold drink after a full day of walking — a solid way to close out my first real tour of the city.\n\n\n\n\nFour stops, one day, and I think I understand Vancouver a little better now.\nI’m still very new to the city, but one thing I’ve already noticed is how easy it is to go from forest to ocean to skyline to historic neighbourhood without really feeling like you’ve left the city at all.\nThere are still plenty of places I haven’t seen, which is probably a good thing.\nMy feet may disagree, but I think I’m going to like it here."
   },
   {
     "objectID": "posts/first-weeks/index.html",
@@ -63,39 +98,74 @@
     "text": "So far\nOne week in, and the experiment has started.\nI’ve moved to a new country, started a new degree, met a lot of new people, found a beach within ten minutes of my hostel, and somehow managed to have a birthday that lasted significantly longer than intended.\nNot a bad first week.\nNow I just have to survive the rest of the program.\nAnd Vancouver winter.\nThose are two separate problems."
   },
   {
-    "objectID": "posts/vancouver-day-out/index.html",
-    "href": "posts/vancouver-day-out/index.html",
-    "title": "A Day Out in Vancouver",
+    "objectID": "posts/python-post/index.html",
+    "href": "posts/python-post/index.html",
+    "title": "A Little Analysis with Python",
     "section": "",
-    "text": "I’d only been in Vancouver for a couple of weeks, so I decided to conduct a fairly ambitious experiment: how much of the city could I see in a single day?\nThe answer turned out to be quite a lot — although my feet had a different opinion by the end.\nI somehow managed to fit a forest, an ocean, a skyline, and a pint of beer into one day, all before sunset."
+    "text": "The following analysis comes from the IMDB dataset, which contains 1,000 movies from 2006–2016, along with information about their genre, rating, number of votes, revenue, and other attributes.\nThe columns in the dataset are:\nRank, Title, Genre, Description, Director, Actors, Year, Runtime (Minutes), Rating, Votes, Revenue (Millions), and Metascore.\nThe dataset is available here.\nI’m going to look at two fairly simple questions:\nNothing particularly groundbreaking here. This is mostly an exercise in getting comfortable with pandas, manipulating the data into a form that is useful for analysis, and making plots that are actually readable."
   },
   {
-    "objectID": "posts/vancouver-day-out/index.html#stanley-park",
-    "href": "posts/vancouver-day-out/index.html#stanley-park",
-    "title": "A Day Out in Vancouver",
-    "section": "Stanley Park",
-    "text": "Stanley Park\nFirst stop: Stanley Park.\nI’d heard it was big, but walking into it still caught me off guard — massive trees on one side, the ocean on the other, and a seawall that just keeps going.\nI spent the morning wandering the trails, half expecting to see a bear. I didn’t — thankfully, or unfortunately, depending on how brave I was feeling that day.\n\n\n\n\n\n\nTip\n\n\n\nIf you’re doing this in one day like I did, start at Stanley Park early. It’s very easy to lose track of time here.\n\n\n\n\n\nView from Stanley Park\n\n\nOne of the things I liked most was how quickly the scenery changed. One minute I was surrounded by trees, and the next I was looking out over the water with downtown in the distance.\nHaving only recently moved here, it was one of those moments where Vancouver started to feel a little less like a place I’d moved to and a little more like a place I was beginning to know."
+    "objectID": "posts/python-post/index.html#data-reading",
+    "href": "posts/python-post/index.html#data-reading",
+    "title": "A Little Analysis with Python",
+    "section": "Data Reading",
+    "text": "Data Reading\nWe can start by reading the data using the pandas library:\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nurl = \"https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv\"\ndf = pd.read_csv(url)\ndf.head()\n\n\n\n\n\n\n\n\nRank\nTitle\nGenre\nDescription\nDirector\nActors\nYear\nRuntime (Minutes)\nRating\nVotes\nRevenue (Millions)\nMetascore\n\n\n\n\n0\n1\nGuardians of the Galaxy\nAction,Adventure,Sci-Fi\nA group of intergalactic criminals are forced ...\nJames Gunn\nChris Pratt, Vin Diesel, Bradley Cooper, Zoe S...\n2014\n121\n8.1\n757074\n333.13\n76.0\n\n\n1\n2\nPrometheus\nAdventure,Mystery,Sci-Fi\nFollowing clues to the origin of mankind, a te...\nRidley Scott\nNoomi Rapace, Logan Marshall-Green, Michael Fa...\n2012\n124\n7.0\n485820\n126.46\n65.0\n\n\n2\n3\nSplit\nHorror,Thriller\nThree girls are kidnapped by a man with a diag...\nM. Night Shyamalan\nJames McAvoy, Anya Taylor-Joy, Haley Lu Richar...\n2016\n117\n7.3\n157606\n138.12\n62.0\n\n\n3\n4\nSing\nAnimation,Comedy,Family\nIn a city of humanoid animals, a hustling thea...\nChristophe Lourdelet\nMatthew McConaughey,Reese Witherspoon, Seth Ma...\n2016\n108\n7.2\n60545\n270.32\n59.0\n\n\n4\n5\nSuicide Squad\nAction,Adventure,Fantasy\nA secret government agency recruits some of th...\nDavid Ayer\nWill Smith, Jared Leto, Margot Robbie, Viola D...\n2016\n123\n6.2\n393727\n325.02\n40.0\n\n\n\n\n\n\n\nThe dataset is already fairly analysis-friendly, but there is one slightly inconvenient column: Genre.\nA movie can belong to multiple genres, so instead of having one genre per row, the dataset stores them together as a comma-separated string.\nFor example, a movie might be classified as:\nAction, Adventure, Sci-Fi\nThat is fine for displaying the data, but not ideal if we want to compare ratings across genres. So the first thing we need to do is split those values apart."
   },
   {
-    "objectID": "posts/vancouver-day-out/index.html#vancouver-aquarium",
-    "href": "posts/vancouver-day-out/index.html#vancouver-aquarium",
-    "title": "A Day Out in Vancouver",
-    "section": "Vancouver Aquarium",
-    "text": "Vancouver Aquarium\nFrom the park, it was a short walk to the Vancouver Aquarium.\nThe sea otters were doing their absolute best to steal the show, and, frankly, they had no competition. I probably spent twenty minutes just watching them float around.\nThey appeared to have mastered the art of having absolutely nowhere else to be.\nIt’s a good reminder of how much marine life is sitting right off the coast here.\n\n\n\nOtters at Stanley Park Aquarium"
+    "objectID": "posts/python-post/index.html#rating-distribution-across-genres",
+    "href": "posts/python-post/index.html#rating-distribution-across-genres",
+    "title": "A Little Analysis with Python",
+    "section": "Rating Distribution across Genres",
+    "text": "Rating Distribution across Genres\nAmong the movies associated with each genre, how are their IMDB ratings distributed?\n\ndf['Genre'] = df['Genre'].str.split(',')\ndf_exploded = df.explode('Genre')\ndf_exploded['Genre'] = df_exploded['Genre'].str.strip()\n\n\ngenre_counts = df_exploded['Genre'].value_counts()\ncommon_genres = genre_counts[genre_counts &gt;= 10].index\ndf_common = df_exploded[df_exploded['Genre'].isin(common_genres)]\n\norder = (\n    df_common.groupby('Genre')['Rating']\n    .median()\n    .sort_values(ascending=False)\n    .index\n)\n\nplt.figure(figsize=(12, 6))\ndata_by_genre = [df_common[df_common['Genre'] == g]['Rating'].values for g in order]\n\nplt.boxplot(data_by_genre, tick_labels=list(order), patch_artist=True,\n            boxprops=dict(facecolor='steelblue', alpha=0.6))\nplt.title('Distribution of IMDB Ratings by Genre')\nplt.xlabel('Genre')\nplt.ylabel('Rating')\nplt.xticks(rotation=45, ha='right')\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\nThere are a couple of things happening here that are worth pointing out.\nFirst, I’m using a boxplot instead of simply calculating the average rating. An average would give us one number for each genre, but it wouldn’t tell us much about how those ratings are distributed.\nThe boxplot gives us a better idea of the median, the middle 50% of ratings, and the spread of the data. It also makes it easier to spot genres where a few movies have ratings that are quite different from the rest.\nI also filtered out genres that appear fewer than 10 times in the dataset. There isn’t much value in comparing a genre represented by only a handful of movies against one represented by hundreds of movies. The cutoff of 10 is somewhat arbitrary, but it keeps the visualization focused on genres with at least a reasonable number of observations.\nThe plot also makes the variation within genres more interesting than simply comparing their medians. Some genres have a relatively tight distribution of ratings, while others have movies spread across a much wider range.\nSo, rather than trying to declare a single “best” genre from this plot, I’d treat it as a way of seeing how different genres are represented in this particular IMDB dataset."
   },
   {
-    "objectID": "posts/vancouver-day-out/index.html#vancouver-lookout",
-    "href": "posts/vancouver-day-out/index.html#vancouver-lookout",
-    "title": "A Day Out in Vancouver",
-    "section": "Vancouver Lookout",
-    "text": "Vancouver Lookout\nBy the afternoon, I made my way downtown to the Vancouver Lookout for a completely different perspective — literally.\nSeeing the whole city laid out from up there, with the mountains in the background and the water on every side, made it click just how much Vancouver is shaped by its geography.\nAfter seeing the city from ground level all morning, it was nice to finally see what all the walking had added up to.\nWorth the elevator ride up.\n\n\n\nView from Vancouver Lookout"
+    "objectID": "posts/python-post/index.html#top-grossing-movies-across-each-year",
+    "href": "posts/python-post/index.html#top-grossing-movies-across-each-year",
+    "title": "A Little Analysis with Python",
+    "section": "Top Grossing Movies across each Year",
+    "text": "Top Grossing Movies across each Year\nFor each year, which movie had the highest reported revenue?\nThere is one complication here: some movies don’t have a value recorded for Revenue (Millions). Since we can’t identify the highest-grossing movie from a missing value, those rows need to be excluded from this particular analysis.\n\ndf_rev = df.dropna(subset=['Revenue (Millions)'])\n\nidx = df_rev.groupby('Year')['Revenue (Millions)'].idxmax()\ntop_per_year = df_rev.loc[idx].sort_values('Year')\n\n\nplt.figure(figsize=(12, 6))\nplt.plot(top_per_year['Year'], top_per_year['Revenue (Millions)'],\n         marker='o', color='steelblue', linewidth=2)\n\n# Annotate each point with the movie title\nfor _, row in top_per_year.iterrows():\n    plt.annotate(row['Title'],\n                 (row['Year'], row['Revenue (Millions)']),\n                 textcoords=\"offset points\", xytext=(0, 8),\n                 fontsize=7, rotation=30, ha='left')\n\nplt.title('Highest-Grossing Movie by Year')\nplt.xlabel('Year')\nplt.ylabel('Revenue (Millions USD)')\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\nI like this visualization a little more than a simple table because the year-to-year changes become much easier to see.\nThere are some fairly dramatic jumps in the revenue of the highest-grossing movie from one year to another. A single blockbuster can pull the top of the chart considerably higher, so the line isn’t really showing a smooth trend in the movie industry. It’s showing how the biggest hit in the dataset changed from year to year.\nThe movie titles are also useful here. Without them, we’d just have a line moving up and down with no idea what caused each point.\nOne thing that stands out is how much the biggest movies can dominate the numbers. A year with one enormous franchise release can look very different from a year where the highest-grossing movie had a much smaller box office."
   },
   {
-    "objectID": "posts/vancouver-day-out/index.html#gastown",
-    "href": "posts/vancouver-day-out/index.html#gastown",
-    "title": "A Day Out in Vancouver",
-    "section": "Gastown",
-    "text": "Gastown\nBy this point, I had walked enough that my feet had started submitting complaints.\nSo I ended the day exactly the way you’re supposed to end a good day of exploring: a beer in Gastown.\nCobblestone streets, the steam clock doing its thing, and a cold drink after a full day of walking — a solid way to close out my first real tour of the city.\n\n\n\n\nFour stops, one day, and I think I understand Vancouver a little better now.\nI’m still very new to the city, but one thing I’ve already noticed is how easy it is to go from forest to ocean to skyline to historic neighbourhood without really feeling like you’ve left the city at all.\nThere are still plenty of places I haven’t seen, which is probably a good thing.\nMy feet may disagree, but I think I’m going to like it here."
+    "objectID": "posts/python-post/index.html#a-few-things-i-took-away",
+    "href": "posts/python-post/index.html#a-few-things-i-took-away",
+    "title": "A Little Analysis with Python",
+    "section": "A few things I took away",
+    "text": "A few things I took away\nThis was a relatively simple analysis, but there were a few useful pandas lessons hiding inside it.\nThe first was explode(). Whenever a column contains multiple values packed into a single cell, it can be useful to turn those values into separate rows before doing any grouping or aggregation.\nThe second was the importance of looking at the distribution, rather than immediately reducing everything to an average. The genre analysis is much more informative as a boxplot because we can see variation between movies, not just one summary statistic.\nAnd finally, there is the slightly less exciting but probably more important part of data analysis: being careful about what the data actually represents.\nIt’s easy to look at a chart and come away with a strong conclusion. But in this case, we’re working with a curated dataset, movies can belong to multiple genres, and some revenue values are missing. Those details don’t make the analysis useless; they just determine what conclusions we can reasonably draw from it.\nWhich is probably a good reminder that the hardest part of data analysis isn’t always writing the code.\nSometimes it’s deciding what the code is actually telling you."
+  },
+  {
+    "objectID": "posts/r-post/index.html",
+    "href": "posts/r-post/index.html",
+    "title": "A Little Analysis with R",
+    "section": "",
+    "text": "The following analysis comes from the IMDB dataset, which contains 1,000 movies from 2006–2016, along with information about their genre, rating, number of votes, revenue, and other attributes.\nThe columns in the dataset are:\nRank, Title, Genre, Description, Director, Actors, Year, Runtime (Minutes), Rating, Votes, Revenue (Millions), and Metascore.\nThe dataset is available here.\nI’m going to look at two fairly simple questions:\nNothing particularly groundbreaking here. This is mostly an excuse to spend some time with R and the tidyverse, and to see how some of the same ideas I would normally reach for in Python translate into R."
+  },
+  {
+    "objectID": "posts/r-post/index.html#data-reading",
+    "href": "posts/r-post/index.html#data-reading",
+    "title": "A Little Analysis with R",
+    "section": "Data Reading",
+    "text": "Data Reading\nWe can start by reading the data using the pandas library:\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nurl &lt;- \"https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv\"\ndf &lt;- read_csv(url)\n\nRows: 1000 Columns: 12\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (5): Title, Genre, Description, Director, Actors\ndbl (7): Rank, Year, Runtime (Minutes), Rating, Votes, Revenue (Millions), M...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nhead(df)\n\n# A tibble: 6 × 12\n   Rank Title Genre Description Director Actors  Year `Runtime (Minutes)` Rating\n  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;               &lt;dbl&gt;  &lt;dbl&gt;\n1     1 Guar… Acti… A group of… James G… Chris…  2014                 121    8.1\n2     2 Prom… Adve… Following … Ridley … Noomi…  2012                 124    7  \n3     3 Split Horr… Three girl… M. Nigh… James…  2016                 117    7.3\n4     4 Sing  Anim… In a city … Christo… Matth…  2016                 108    7.2\n5     5 Suic… Acti… A secret g… David A… Will …  2016                 123    6.2\n6     6 The … Acti… European m… Yimou Z… Matt …  2016                 103    6.1\n# ℹ 3 more variables: Votes &lt;dbl&gt;, `Revenue (Millions)` &lt;dbl&gt;, Metascore &lt;dbl&gt;\n\n\nThe dataset is already in a fairly convenient format, so there isn’t a huge amount of cleaning required.\nThe one column that needs a little attention is Genre.\nA movie can belong to more than one genre, so instead of having a single value like Drama, we might have something like Action, Adventure, Sci-Fi sitting inside one cell.\nThat’s perfectly reasonable for a dataset intended for browsing, but it becomes slightly inconvenient when we want to group movies by genre.\nSo let’s separate those values first."
+  },
+  {
+    "objectID": "posts/r-post/index.html#runtime-distribution-across-genres",
+    "href": "posts/r-post/index.html#runtime-distribution-across-genres",
+    "title": "A Little Analysis with R",
+    "section": "Runtime Distribution across Genres",
+    "text": "Runtime Distribution across Genres\nAre some types of movies generally longer than others?\n\ndf_long &lt;- df |&gt;\n  separate_rows(Genre, sep = \",\") |&gt;\n  mutate(Genre = str_trim(Genre))\n\ngenre_counts &lt;- df_long |&gt; count(Genre)\ncommon_genres &lt;- genre_counts |&gt; filter(n &gt;= 10) |&gt; pull(Genre)\n\ndf_common &lt;- df_long |&gt; filter(Genre %in% common_genres)\n\ngenre_order &lt;- df_common |&gt;\n  group_by(Genre) |&gt;\n  summarise(median_runtime = median(`Runtime (Minutes)`, na.rm = TRUE)) |&gt;\n  arrange(desc(median_runtime)) |&gt;\n  pull(Genre)\n\ndf_common &lt;- df_common |&gt;\n  mutate(Genre = factor(Genre, levels = genre_order))\n\n\nggplot(df_common, aes(x = Genre, y = `Runtime (Minutes)`, fill = Genre)) +\n  geom_boxplot(alpha = 0.7, show.legend = FALSE) +\n  labs(title = \"Distribution of Runtime by Genre\",\n       x = \"Genre\", y = \"Runtime (Minutes)\") +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\n\n\n\nThe first thing I wanted to look at was runtime.\nRather than just calculating the average runtime for each genre, I’m using a boxplot. This gives us a little more information about the distribution of runtimes within each genre.\nThe ordering is based on the median runtime, so the genres at the top of the chart have the highest typical runtime in this dataset.\nI also filtered out genres with fewer than 10 movies. There isn’t much point in making strong visual comparisons for a genre represented by only a handful of observations.\nThe interesting part of the plot isn’t necessarily which genre has the single longest runtime. It’s the spread within each genre.\nSome genres have a fairly compact range of runtimes, while others have movies scattered across a much wider range. The median gives us one way of comparing the typical movie, while the boxplot shows us how much variation exists around that typical value.\nSo this plot gives us a useful overview of how runtime varies across the genres represented in the dataset, without pretending that runtime alone tells us anything particularly profound about a movie."
+  },
+  {
+    "objectID": "posts/r-post/index.html#top-rated-movies-across-each-year",
+    "href": "posts/r-post/index.html#top-rated-movies-across-each-year",
+    "title": "A Little Analysis with R",
+    "section": "Top Rated Movies across each Year",
+    "text": "Top Rated Movies across each Year\nNow let’s look at ratings.\nInstead of asking which genre has the highest rating, I’m going to change the question slightly:\nFor each year, which movie had the highest IMDB rating?\n\ntop_per_year &lt;- df |&gt;\n  group_by(Year) |&gt;\n  slice_max(order_by = Rating, n = 1, with_ties = FALSE) |&gt;\n  ungroup() |&gt;\n  arrange(Year)\n\ntop_per_year |&gt; select(Year, Title, Rating)\n\n# A tibble: 11 × 3\n    Year Title                   Rating\n   &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt;\n 1  2006 The Prestige               8.5\n 2  2007 Taare Zameen Par           8.5\n 3  2008 The Dark Knight            9  \n 4  2009 3 Idiots                   8.4\n 5  2010 Inception                  8.8\n 6  2011 The Intouchables           8.6\n 7  2012 The Dark Knight Rises      8.5\n 8  2013 The Wolf of Wall Street    8.2\n 9  2014 Interstellar               8.6\n10  2015 Bahubali: The Beginning    8.3\n11  2016 Dangal                     8.8\n\nggplot(top_per_year, aes(x = Year, y = Rating)) +\n  geom_line(color = \"steelblue\", linewidth = 1) +\n  geom_point(color = \"steelblue\", size = 2) +\n  geom_text(aes(label = Title), angle = 30, hjust = 0, vjust = -0.5,\n            size = 2.5, check_overlap = TRUE) +\n  labs(title = \"Highest-Rated Movie by Year\",\n       x = \"Year\", y = \"Rating\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nThis one is a little more straightforward.\ngroup_by(Year) lets us consider each year separately, and slice_max() then picks the movie with the highest rating within that year.\nI used with_ties = FALSE here so that we get exactly one movie per year, even if two movies happen to have the same rating.\nThe resulting table is useful on its own, but the plot makes the year-to-year pattern easier to see.\nThe line isn’t really showing a trend in movie quality. It’s showing the maximum rating among the movies present in this dataset for each year.\nThat’s an important distinction.\nWe’re not looking at every movie released in each year, and we’re certainly not measuring the quality of an entire year’s movies. We’re just asking which movie in this particular dataset had the highest rating for that year.\nThe labels make the chart a little more interesting because we can connect the numbers back to actual movies. Otherwise we’d just have a line moving between ratings without much context.\nIt’s also worth remembering that the difference between, say, an 8.1 and an 8.2 isn’t necessarily meaningful by itself. Ratings are aggregates, and the number of votes, audience composition, and other factors can all affect them.\nStill, as a small exploratory exercise, it’s a nice way of combining grouping, filtering, and visualization."
+  },
+  {
+    "objectID": "posts/r-post/index.html#a-few-things-i-took-away",
+    "href": "posts/r-post/index.html#a-few-things-i-took-away",
+    "title": "A Little Analysis with R",
+    "section": "A few things I took away",
+    "text": "A few things I took away\nThe main reason for doing this analysis wasn’t really to discover some profound fact about movies.\nIt was to get more comfortable with R.\nComing from Python, some of the ideas feel immediately familiar. group_by() and summarise() cover much of the same territory as pandas’ grouping operations, while ggplot2 provides a very different but surprisingly intuitive way of thinking about visualizations.\nThe biggest difference I noticed was how naturally the tidyverse encourages you to think about data as a sequence of transformations:\ntake the data → transform it → group it → summarize it → visualize it.\nOnce the syntax starts becoming familiar, the individual operations aren’t particularly complicated.\nThe more interesting part, as usual, is deciding what the resulting numbers actually mean.\nFor example, the genre analysis isn’t really telling us that one genre causes longer movies, and the yearly rating analysis isn’t telling us which year produced the “best” movies.\nThey’re just two different ways of looking at the same dataset.\nAnd honestly, that’s probably a good enough reason to spend an afternoon playing around with it."
   },
   {
     "objectID": "about.html",

@@ -9,3 +9,9 @@ uvr.*
 .Rprofile
 .uvr/
 .vscode/
+renv/
+
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+src/
