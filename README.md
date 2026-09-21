@@ -154,9 +154,9 @@ the generated website is written to `docs/`.
  
 For a no-terminal option, two scripts in the repo root run all four steps above automatically:
  
-- **macOS:** double-click `build-mac.command`
+- **macOS:** double-click `build_macos.command`
   - First run only: right-click the file → **Open**, to bypass Gatekeeper's unidentified-developer warning.
-- **Windows:** double-click `build-windows.bat`
+- **Windows:** double-click `build_windows.bat`
   - First run only: if SmartScreen appears, click **More info** → **Run anyway**.
 
 Both scripts require `uv` and `R`/`Rscript` to already be installed and available on PATH. The script installs dependencies, renders the site, and starts the local preview server; close the terminal window (or press `Ctrl+C`) to stop the preview.
