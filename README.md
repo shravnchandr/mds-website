@@ -152,7 +152,7 @@ the generated website is written to `docs/`.
  
 For a no-terminal option, two scripts in the repo root run all four steps above automatically:
  
-- **macOS:** double-click `build-mac.command`
+- **macOS:** double-click `build-macos.command`
   - First run only: right-click the file → **Open**, to bypass Gatekeeper's unidentified-developer warning.
   - If macOS says the file *"could not be executed because you do not have appropriate access privileges"*, the executable bit was stripped during download (common after downloading via browser/Slack/zip). Fix it once in Terminal:
 ```bash
