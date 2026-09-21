@@ -12,13 +12,19 @@ The site combines a personal homepage and About page with blog posts covering ex
 ├── index.qmd                   # Homepage
 ├── about.qmd                   # About page
 ├── blog.qmd                    # Blog listing
+├── data/                       # Blog post source files
+│   └── IMDB_Movie_Data.csv     # Data backup
 ├── posts/                      # Blog post source files
 │   ├── first-weeks/
 │   │   ├── index.qmd
 │   │   └── media/
-│   └── vancouver-day-out/
-│       ├── index.qmd
-│       └── media/
+│   ├── vancouver-day-out/
+│   │   ├── index.qmd
+│   │   └── media/
+│   ├── python-post/
+│   │   └── index.qmd
+│   ├── r-post/
+│   │   └── index.qmd
 ├── images/                     # Site-wide images
 │   └── profile.jpeg
 ├── m3e.css                     # Material 3 Expressive-inspired site styling
@@ -85,8 +91,20 @@ Current posts include:
 
 - `posts/first-weeks/` — *My First Week in MDS*
 - `posts/vancouver-day-out/` — *A Perfect Day in Vancouver*
+- `posts/python-post/` — *IMDB Movie Analysis using Python*
+- `posts/r-post/` — *IMDB Movie Analysis using R*
 
 Post-specific images and video are kept alongside the post source in its `media/` directory.
+
+## Data
+
+`posts/python-post/index.qmd` and `posts/r-post/index.qmd` both use the same IMDB dataset:
+
+```text
+https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDBTop100.csv
+```
+
+Both posts read from this URL directly at render time. If there is no network access, they fall back to the local copy kept in `data/` instead, so the site can still render offline.
 
 ## Styling
 
@@ -104,29 +122,46 @@ The stylesheet is designed to work on top of the existing Quarto/Cosmo/brand the
 
 ## Local development
 
+## Local development
+
 Make changes to the `.qmd`, CSS, image, or media source files rather than editing files inside `docs/`.
 
-The Quarto project can then be rendered to the configured output directory:
+Set up the environment and build the site:
 
-```bash
-quarto render
-```
+\```bash
+# 1. Install Python dependencies
+uv sync
+
+# 2. Install R dependencies
+Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv'); renv::restore(prompt = FALSE)"
+
+# 3. Render the site
+uv run quarto render
+
+# 4. Preview the site locally
+uv run quarto preview
+\```
 
 Because `_quarto.yml` specifies:
 
-```yaml
+\```yaml
 output-dir: docs
-```
+\```
 
 the generated website is written to `docs/`.
 
-For development, Quarto's preview workflow can be used to serve the site locally:
+### Quick build (one click)
+ 
+For a no-terminal option, two scripts in the repo root run all four steps above automatically:
+ 
+- **macOS:** double-click `build-mac.command`
+  - First run only: right-click the file → **Open**, to bypass Gatekeeper's unidentified-developer warning.
+- **Windows:** double-click `build-windows.bat`
+  - First run only: if SmartScreen appears, click **More info** → **Run anyway**.
 
-```bash
-quarto preview
-```
+Both scripts require `uv` and `R`/`Rscript` to already be installed and available on PATH. The script installs dependencies, renders the site, and starts the local preview server; close the terminal window (or press `Ctrl+C`) to stop the preview.
 
-## Generated output
+### Generated output
 
 `docs/` contains the rendered website, including:
 

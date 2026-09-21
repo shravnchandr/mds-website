@@ -31,7 +31,14 @@ We can start by reading the data using the pandas library:
 library(tidyverse)
 
 url <- "https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv"
-df <- read_csv(url)
+local_path <- "../../data/IMDB_Movie_Data.csv"
+
+df <- tryCatch(
+  read_csv(url),
+  error = function(e) {
+    read_csv(local_path)
+  }
+)
 
 head(df)
 ```

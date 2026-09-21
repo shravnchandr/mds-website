@@ -30,7 +30,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 url = "https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv"
-df = pd.read_csv(url)
+local_path = "../../data/IMDB_Movie_Data.csv"
+
+try:
+    df = pd.read_csv(url)
+except Exception as e:
+    df = pd.read_csv(local_path)
+    
 df.head()
 ```
 

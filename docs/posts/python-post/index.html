@@ -218,13 +218,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-reading" class="level2">
 <h2 class="anchored" data-anchor-id="data-reading">Data Reading</h2>
 <p>We can start by reading the data using the pandas library:</p>
-<div id="11ad89dc" class="cell" data-execution_count="1">
+<div id="dcedb74b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>local_path <span class="op">=</span> <span class="st">"../../data/IMDB_Movie_Data.csv"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(local_path)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
@@ -338,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="rating-distribution-across-genres" class="level2">
 <h2 class="anchored" data-anchor-id="rating-distribution-across-genres">Rating Distribution across Genres</h2>
 <p><strong>Among the movies associated with each genre, how are their IMDB ratings distributed?</strong></p>
-<div id="130ddcf5" class="cell" data-execution_count="2">
+<div id="7fd0bc61" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Genre'</span>] <span class="op">=</span> df[<span class="st">'Genre'</span>].<span class="bu">str</span>.split(<span class="st">','</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_exploded <span class="op">=</span> df.explode(<span class="st">'Genre'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_exploded[<span class="st">'Genre'</span>] <span class="op">=</span> df_exploded[<span class="st">'Genre'</span>].<span class="bu">str</span>.strip()</span>
@@ -385,7 +391,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="top-grossing-movies-across-each-year">Top Grossing Movies across each Year</h2>
 <p><strong>For each year, which movie had the highest reported revenue?</strong></p>
 <p>There is one complication here: some movies don’t have a value recorded for <code>Revenue (Millions)</code>. Since we can’t identify the highest-grossing movie from a missing value, those rows need to be excluded from this particular analysis.</p>
-<div id="8a1d2855" class="cell" data-execution_count="3">
+<div id="c8075b93" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_rev <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Revenue (Millions)'</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> df_rev.groupby(<span class="st">'Year'</span>)[<span class="st">'Revenue (Millions)'</span>].idxmax()</span>
