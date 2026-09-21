@@ -1,0 +1,171 @@
+---
+title: "A Little Analysis with R"
+subtitle: "Some movies, some numbers, and a bit of R"
+author: "Shravan Chandra"
+date: 2026-09-21
+---
+
+
+
+The following analysis comes from the IMDB dataset, which contains 1,000 movies from 2006–2016, along with information about their genre, rating, number of votes, revenue, and other attributes.
+
+The columns in the dataset are:
+
+`Rank`, `Title`, `Genre`, `Description`, `Director`, `Actors`, `Year`, `Runtime (Minutes)`, `Rating`, `Votes`, `Revenue (Millions)`, and `Metascore`.
+
+The dataset is available [here](https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv).
+
+I'm going to look at two fairly simple questions:
+
+1. Do different genres tend to have different runtimes?
+2. What was the highest-rated movie in each year?
+
+Nothing particularly groundbreaking here. This is mostly an excuse to spend some time with R and the tidyverse, and to see how some of the same ideas I would normally reach for in Python translate into R.
+
+## Data Reading
+
+We can start by reading the data using the pandas library:
+
+
+```{R}
+library(tidyverse)
+
+url <- "https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv"
+df <- read_csv(url)
+
+head(df)
+```
+
+The dataset is already in a fairly convenient format, so there isn't a huge amount of cleaning required.
+
+The one column that needs a little attention is `Genre`.
+
+A movie can belong to more than one genre, so instead of having a single value like `Drama`, we might have something like `Action, Adventure, Sci-Fi` sitting inside one cell.
+
+That's perfectly reasonable for a dataset intended for browsing, but it becomes slightly inconvenient when we want to group movies by genre.
+
+So let's separate those values first.
+
+
+## Runtime Distribution across Genres
+
+**Are some types of movies generally longer than others?**
+
+```{R}
+df_long <- df |>
+  separate_rows(Genre, sep = ",") |>
+  mutate(Genre = str_trim(Genre))
+
+genre_counts <- df_long |> count(Genre)
+common_genres <- genre_counts |> filter(n >= 10) |> pull(Genre)
+
+df_common <- df_long |> filter(Genre %in% common_genres)
+
+genre_order <- df_common |>
+  group_by(Genre) |>
+  summarise(median_runtime = median(`Runtime (Minutes)`, na.rm = TRUE)) |>
+  arrange(desc(median_runtime)) |>
+  pull(Genre)
+
+df_common <- df_common |>
+  mutate(Genre = factor(Genre, levels = genre_order))
+
+
+ggplot(df_common, aes(x = Genre, y = `Runtime (Minutes)`, fill = Genre)) +
+  geom_boxplot(alpha = 0.7, show.legend = FALSE) +
+  labs(title = "Distribution of Runtime by Genre",
+       x = "Genre", y = "Runtime (Minutes)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+The first thing I wanted to look at was runtime.
+
+Rather than just calculating the average runtime for each genre, I'm using a boxplot. This gives us a little more information about the distribution of runtimes within each genre.
+
+The ordering is based on the median runtime, so the genres at the top of the chart have the highest typical runtime in this dataset.
+
+There is also a small bit of data wrangling happening before we get to the plot.
+
+`separate_rows()` takes a cell containing multiple genres and turns it into multiple rows. So a movie tagged as `Action, Adventure, Sci-Fi` becomes three observations: one for Action, one for Adventure, and one for Sci-Fi.
+
+This is useful, but it also changes how we need to interpret the resulting data. A movie belonging to three genres is now represented in all three groups. The genres therefore aren't independent categories.
+
+I also filtered out genres with fewer than 10 movies. There isn't much point in making strong visual comparisons for a genre represented by only a handful of observations.
+
+The interesting part of the plot isn't necessarily which genre has the single longest runtime. It's the **spread** within each genre.
+
+Some genres have a fairly compact range of runtimes, while others have movies scattered across a much wider range. The median gives us one way of comparing the typical movie, while the boxplot shows us how much variation exists around that typical value.
+
+So this plot gives us a useful overview of how runtime varies across the genres represented in the dataset, without pretending that runtime alone tells us anything particularly profound about a movie.
+
+
+## Top Rated Movies across each Year
+
+Now let's look at ratings.
+
+Instead of asking which genre has the highest rating, I'm going to change the question slightly:
+
+**For each year, which movie had the highest IMDB rating?**
+
+```{R}
+top_per_year <- df |>
+  group_by(Year) |>
+  slice_max(order_by = Rating, n = 1, with_ties = FALSE) |>
+  ungroup() |>
+  arrange(Year)
+
+top_per_year |> select(Year, Title, Rating)
+
+
+ggplot(top_per_year, aes(x = Year, y = Rating)) +
+  geom_line(color = "steelblue", linewidth = 1) +
+  geom_point(color = "steelblue", size = 2) +
+  geom_text(aes(label = Title), angle = 30, hjust = 0, vjust = -0.5,
+            size = 2.5, check_overlap = TRUE) +
+  labs(title = "Highest-Rated Movie by Year",
+       x = "Year", y = "Rating") +
+  theme_minimal()
+```
+
+This one is a little more straightforward.
+
+`group_by(Year)` lets us consider each year separately, and `slice_max()` then picks the movie with the highest rating within that year.
+
+I used `with_ties = FALSE` here so that we get exactly one movie per year, even if two movies happen to have the same rating.
+
+The resulting table is useful on its own, but the plot makes the year-to-year pattern easier to see.
+
+The line isn't really showing a trend in movie quality. It's showing the **maximum rating among the movies present in this dataset for each year**.
+
+That's an important distinction.
+
+We're not looking at every movie released in each year, and we're certainly not measuring the quality of an entire year's movies. We're just asking which movie in this particular dataset had the highest rating for that year.
+
+The labels make the chart a little more interesting because we can connect the numbers back to actual movies. Otherwise we'd just have a line moving between ratings without much context.
+
+It's also worth remembering that the difference between, say, an 8.1 and an 8.2 isn't necessarily meaningful by itself. Ratings are aggregates, and the number of votes, audience composition, and other factors can all affect them.
+
+Still, as a small exploratory exercise, it's a nice way of combining grouping, filtering, and visualization.
+
+## A few things I took away
+
+The main reason for doing this analysis wasn't really to discover some profound fact about movies.
+
+It was to get more comfortable with R.
+
+Coming from Python, some of the ideas feel immediately familiar. `group_by()` and `summarise()` cover much of the same territory as pandas' grouping operations, while `ggplot2` provides a very different but surprisingly intuitive way of thinking about visualizations.
+
+The biggest difference I noticed was how naturally the tidyverse encourages you to think about data as a sequence of transformations:
+
+**take the data → transform it → group it → summarize it → visualize it.**
+
+Once the syntax starts becoming familiar, the individual operations aren't particularly complicated.
+
+The more interesting part, as usual, is deciding what the resulting numbers actually mean.
+
+For example, the genre analysis isn't really telling us that one genre *causes* longer movies, and the yearly rating analysis isn't telling us which year produced the "best" movies.
+
+They're just two different ways of looking at the same dataset.
+
+And honestly, that's probably a good enough reason to spend an afternoon playing around with it.
