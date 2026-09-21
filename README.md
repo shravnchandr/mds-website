@@ -122,23 +122,21 @@ The stylesheet is designed to work on top of the existing Quarto/Cosmo/brand the
 
 ## Local development
 
-## Local development
-
 Make changes to the `.qmd`, CSS, image, or media source files rather than editing files inside `docs/`.
 
 Set up the environment and build the site:
 
 \```bash
-# 1. Install Python dependencies
+#### 1. Install Python dependencies
 uv sync
 
-# 2. Install R dependencies
+#### 2. Install R dependencies
 Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv'); renv::restore(prompt = FALSE)"
 
-# 3. Render the site
+#### 3. Render the site
 uv run quarto render
 
-# 4. Preview the site locally
+#### 4. Preview the site locally
 uv run quarto preview
 \```
 
@@ -162,7 +160,7 @@ For a no-terminal option, two scripts in the repo root run all four steps above 
     chmod +x build-mac.command
 ```
     Then double-click the file again.
-    
+
 - **Windows:** double-click `build-windows.bat`
   - First run only: if SmartScreen appears, click **More info** → **Run anyway**.
   - ⚠️ Not yet verified on an actual Windows machine — the steps mirror the Mac script, but if you hit issues, please open an issue or fix and PR.
