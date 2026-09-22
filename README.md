@@ -158,8 +158,8 @@ For a no-terminal option, two scripts in the repo root run all four steps above 
 ```bash
     cd /path/to/mds-website
     chmod +x build-mac.command
-```
-    Then double-click the file again.
+```  
+  Then double-click the file again.
 
 - **Windows:** double-click `build-windows.bat`
   - First run only: if SmartScreen appears, click **More info** → **Run anyway**.
