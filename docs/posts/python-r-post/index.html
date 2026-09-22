@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Shravan Chandra">
-<meta name="dcterms.date" content="2026-09-21">
+<meta name="dcterms.date" content="2026-09-23">
 
-<title>A Little Analysis with Python – Shravan Chandra</title>
+<title>A Little Analysis with Python &amp; R – Shravan Chandra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -110,9 +110,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../m3e.css">
@@ -163,10 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-reading" id="toc-data-reading" class="nav-link active" data-scroll-target="#data-reading">Data Reading</a></li>
-  <li><a href="#rating-distribution-across-genres" id="toc-rating-distribution-across-genres" class="nav-link" data-scroll-target="#rating-distribution-across-genres">Rating Distribution across Genres</a></li>
-  <li><a href="#top-grossing-movies-across-each-year" id="toc-top-grossing-movies-across-each-year" class="nav-link" data-scroll-target="#top-grossing-movies-across-each-year">Top Grossing Movies across each Year</a></li>
-  <li><a href="#a-few-things-i-took-away" id="toc-a-few-things-i-took-away" class="nav-link" data-scroll-target="#a-few-things-i-took-away">A few things I took away</a></li>
+  <li><a href="#data-reading-setup" id="toc-data-reading-setup" class="nav-link active" data-scroll-target="#data-reading-setup">Data Reading &amp; Setup</a></li>
+  <li><a href="#rating-vs-metascore-by-genre" id="toc-rating-vs-metascore-by-genre" class="nav-link" data-scroll-target="#rating-vs-metascore-by-genre">Rating vs Metascore by Genre</a></li>
+  <li><a href="#a-small-pythonr-experiment" id="toc-a-small-pythonr-experiment" class="nav-link" data-scroll-target="#a-small-pythonr-experiment">A small Python–R experiment</a></li>
+  <li><a href="#what-i-took-away" id="toc-what-i-took-away" class="nav-link" data-scroll-target="#what-i-took-away">What I took away</a></li>
   </ul>
 </nav>
     </div>
@@ -175,8 +172,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A Little Analysis with Python</h1>
-<p class="subtitle lead">Some movies, some numbers, and a bit of Python</p>
+<h1 class="title">A Little Analysis with Python &amp; R</h1>
+<p class="subtitle lead">Do critics and audiences actually agree?</p>
 </div>
 
 
@@ -193,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 21, 2026</p>
+      <p class="date">September 23, 2026</p>
     </div>
   </div>
   
@@ -205,237 +202,165 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The following analysis comes from the IMDB dataset, which contains 1,000 movies from 2006–2016, along with information about their genre, rating, number of votes, revenue, and other attributes.</p>
-<p>The columns in the dataset are:</p>
-<p><code>Rank</code>, <code>Title</code>, <code>Genre</code>, <code>Description</code>, <code>Director</code>, <code>Actors</code>, <code>Year</code>, <code>Runtime (Minutes)</code>, <code>Rating</code>, <code>Votes</code>, <code>Revenue (Millions)</code>, and <code>Metascore</code>.</p>
-<p>The dataset is available <a href="https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv">here</a>.</p>
-<p>I’m going to look at two fairly simple questions:</p>
-<ol type="1">
-<li>Do some genres tend to have higher IMDB ratings than others?</li>
-<li>What was the highest-grossing movie in each year?</li>
-</ol>
-<p>Nothing particularly groundbreaking here. This is mostly an exercise in getting comfortable with pandas, manipulating the data into a form that is useful for analysis, and making plots that are actually readable.</p>
-<section id="data-reading" class="level2">
-<h2 class="anchored" data-anchor-id="data-reading">Data Reading</h2>
-<p>We can start by reading the data using the pandas library:</p>
-<div id="a5065fb9" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>local_path <span class="op">=</span> <span class="st">"../../data/IMDB_Movie_Data.csv"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(local_path)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
+<p>I’ve been playing around with the IMDB dataset again, this time with both Python and R.</p>
+<p>The question this time is a little more interesting than simply asking which movies have the highest ratings:</p>
+<p><strong>Do critics and audiences generally agree on which movies are good?</strong></p>
+<p>The dataset gives us two useful numbers for this:</p>
+<ul>
+<li><strong>IMDB Rating</strong> — the audience rating for a movie.</li>
+<li><strong>Metascore</strong> — an aggregate score based on professional critics’ reviews.</li>
+</ul>
+<p>If the two tend to move together, we’d expect movies with high Metascores to also have high IMDB ratings.</p>
+<p>But I was also curious whether that relationship changes depending on the genre.</p>
+<p>So, rather than calculating one correlation for the entire dataset, I’m going to break it down by genre and see what happens.</p>
+<section id="data-reading-setup" class="level2">
+<h2 class="anchored" data-anchor-id="data-reading-setup">Data Reading &amp; Setup</h2>
+<p>This time I’m using both R and Python.</p>
+<p>R handles the overall setup and visualization, while Python does the initial data manipulation. <code>reticulate</code> lets the two environments talk to each other, which means I don’t have to choose between them.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /Users/shravan.nyc/Projects/UBC_MDS/DSCI_521/mds-website</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_virtualenv</span>(<span class="fu">here</span>(<span class="st">".venv"</span>), <span class="at">required =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The dataset is available online, but I’ve also kept a local copy as a fallback. That way the analysis doesn’t completely fall apart if the remote CSV happens to be unavailable.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>local_path <span class="op">=</span> <span class="st">"../../data/IMDB_Movie_Data.csv"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(local_path)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Rank                    Title  ... Revenue (Millions) Metascore
+0     1  Guardians of the Galaxy  ...             333.13      76.0
+1     2               Prometheus  ...             126.46      65.0
+2     3                    Split  ...             138.12      62.0
+3     4                     Sing  ...             270.32      59.0
+4     5            Suicide Squad  ...             325.02      40.0
 
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Rank</th>
-<th data-quarto-table-cell-role="th">Title</th>
-<th data-quarto-table-cell-role="th">Genre</th>
-<th data-quarto-table-cell-role="th">Description</th>
-<th data-quarto-table-cell-role="th">Director</th>
-<th data-quarto-table-cell-role="th">Actors</th>
-<th data-quarto-table-cell-role="th">Year</th>
-<th data-quarto-table-cell-role="th">Runtime (Minutes)</th>
-<th data-quarto-table-cell-role="th">Rating</th>
-<th data-quarto-table-cell-role="th">Votes</th>
-<th data-quarto-table-cell-role="th">Revenue (Millions)</th>
-<th data-quarto-table-cell-role="th">Metascore</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>1</td>
-<td>Guardians of the Galaxy</td>
-<td>Action,Adventure,Sci-Fi</td>
-<td>A group of intergalactic criminals are forced ...</td>
-<td>James Gunn</td>
-<td>Chris Pratt, Vin Diesel, Bradley Cooper, Zoe S...</td>
-<td>2014</td>
-<td>121</td>
-<td>8.1</td>
-<td>757074</td>
-<td>333.13</td>
-<td>76.0</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>2</td>
-<td>Prometheus</td>
-<td>Adventure,Mystery,Sci-Fi</td>
-<td>Following clues to the origin of mankind, a te...</td>
-<td>Ridley Scott</td>
-<td>Noomi Rapace, Logan Marshall-Green, Michael Fa...</td>
-<td>2012</td>
-<td>124</td>
-<td>7.0</td>
-<td>485820</td>
-<td>126.46</td>
-<td>65.0</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>3</td>
-<td>Split</td>
-<td>Horror,Thriller</td>
-<td>Three girls are kidnapped by a man with a diag...</td>
-<td>M. Night Shyamalan</td>
-<td>James McAvoy, Anya Taylor-Joy, Haley Lu Richar...</td>
-<td>2016</td>
-<td>117</td>
-<td>7.3</td>
-<td>157606</td>
-<td>138.12</td>
-<td>62.0</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>4</td>
-<td>Sing</td>
-<td>Animation,Comedy,Family</td>
-<td>In a city of humanoid animals, a hustling thea...</td>
-<td>Christophe Lourdelet</td>
-<td>Matthew McConaughey,Reese Witherspoon, Seth Ma...</td>
-<td>2016</td>
-<td>108</td>
-<td>7.2</td>
-<td>60545</td>
-<td>270.32</td>
-<td>59.0</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>5</td>
-<td>Suicide Squad</td>
-<td>Action,Adventure,Fantasy</td>
-<td>A secret government agency recruits some of th...</td>
-<td>David Ayer</td>
-<td>Will Smith, Jared Leto, Margot Robbie, Viola D...</td>
-<td>2016</td>
-<td>123</td>
-<td>6.2</td>
-<td>393727</td>
-<td>325.02</td>
-<td>40.0</td>
-</tr>
-</tbody>
-</table>
-
+[5 rows x 12 columns]</code></pre>
 </div>
 </div>
+<p>There’s something mildly satisfying about being able to use Python and R in the same notebook.</p>
+<p>I’m still figuring out exactly where I prefer one over the other, so for now this is partly an analysis and partly an excuse to experiment with the tooling.</p>
+</section>
+<section id="rating-vs-metascore-by-genre" class="level2">
+<h2 class="anchored" data-anchor-id="rating-vs-metascore-by-genre">Rating vs Metascore by Genre</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_clean <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Rating'</span>, <span class="st">'Metascore'</span>]).copy()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_clean[<span class="st">'Genre'</span>] <span class="op">=</span> df_clean[<span class="st">'Genre'</span>].<span class="bu">str</span>.split(<span class="st">','</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df_long <span class="op">=</span> df_clean.explode(<span class="st">'Genre'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df_long[<span class="st">'Genre'</span>] <span class="op">=</span> df_long[<span class="st">'Genre'</span>].<span class="bu">str</span>.strip()</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>genre_counts <span class="op">=</span> df_long[<span class="st">'Genre'</span>].value_counts()</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>common_genres <span class="op">=</span> genre_counts[genre_counts <span class="op">&gt;=</span> <span class="dv">20</span>].index</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>df_common <span class="op">=</span> df_long[df_long[<span class="st">'Genre'</span>].isin(common_genres)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The dataset is already fairly analysis-friendly, but there is one slightly inconvenient column: <code>Genre</code>.</p>
-<p>A movie can belong to multiple genres, so instead of having one genre per row, the dataset stores them together as a comma-separated string.</p>
-<p>For example, a movie might be classified as:</p>
+<p>There’s another small transformation here that we’ve seen before.</p>
+<p>Movies can belong to multiple genres, so the <code>Genre</code> column contains values such as:</p>
 <p><code>Action, Adventure, Sci-Fi</code></p>
-<p>That is fine for displaying the data, but not ideal if we want to compare ratings across genres. So the first thing we need to do is split those values apart.</p>
-</section>
-<section id="rating-distribution-across-genres" class="level2">
-<h2 class="anchored" data-anchor-id="rating-distribution-across-genres">Rating Distribution across Genres</h2>
-<p><strong>Among the movies associated with each genre, how are their IMDB ratings distributed?</strong></p>
-<div id="d0e9adca" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Genre'</span>] <span class="op">=</span> df[<span class="st">'Genre'</span>].<span class="bu">str</span>.split(<span class="st">','</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_exploded <span class="op">=</span> df.explode(<span class="st">'Genre'</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_exploded[<span class="st">'Genre'</span>] <span class="op">=</span> df_exploded[<span class="st">'Genre'</span>].<span class="bu">str</span>.strip()</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>genre_counts <span class="op">=</span> df_exploded[<span class="st">'Genre'</span>].value_counts()</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>common_genres <span class="op">=</span> genre_counts[genre_counts <span class="op">&gt;=</span> <span class="dv">10</span>].index</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df_common <span class="op">=</span> df_exploded[df_exploded[<span class="st">'Genre'</span>].isin(common_genres)]</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>order <span class="op">=</span> (</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    df_common.groupby(<span class="st">'Genre'</span>)[<span class="st">'Rating'</span>]</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    .median()</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    .sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    .index</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>data_by_genre <span class="op">=</span> [df_common[df_common[<span class="st">'Genre'</span>] <span class="op">==</span> g][<span class="st">'Rating'</span>].values <span class="cf">for</span> g <span class="kw">in</span> order]</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>plt.boxplot(data_by_genre, tick_labels<span class="op">=</span><span class="bu">list</span>(order), patch_artist<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            boxprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'steelblue'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>))</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of IMDB Ratings by Genre'</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Genre'</span>)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Rating'</span>)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
+<p>I’m splitting those apart and using <code>explode()</code> so that a movie can be included in each of its genres.</p>
+<p>I’m also limiting the analysis to genres with at least 20 observations. The cutoff is somewhat arbitrary, but it avoids putting too much weight on genres with very few movies.</p>
+<p>Now we can calculate the correlation between IMDB Rating and Metascore separately for each genre.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>corr_by_genre <span class="op">=</span> (</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    df_common.groupby(<span class="st">'Genre'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">apply</span>(<span class="kw">lambda</span> g: g[<span class="st">'Rating'</span>].corr(g[<span class="st">'Metascore'</span>]), include_groups<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    .sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    .reset_index(name<span class="op">=</span><span class="st">'correlation'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The correlation coefficient gives us a compact way of describing how strongly two variables move together.</p>
+<p>A value close to <strong>1</strong> means that higher Metascores tend to be associated with higher IMDB ratings. A value close to <strong>0</strong> means that there isn’t much of a linear relationship. And a negative value would indicate that the two tend to move in opposite directions.</p>
+<p>But a correlation coefficient on its own is a little abstract.</p>
+<p>I’d much rather see the actual movies represented as points.</p>
+<p>So this is where R comes back in.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_common_r   <span class="ot">&lt;-</span> py<span class="sc">$</span>df_common</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in py_to_r.pandas.DataFrame(x): index contains duplicated values: row
+names not set</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>corr_by_genre_r <span class="ot">&lt;-</span> py<span class="sc">$</span>corr_by_genre <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df_common_r <span class="ot">&lt;-</span> df_common_r <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Genre =</span> <span class="fu">factor</span>(Genre, <span class="at">levels =</span> corr_by_genre_r<span class="sc">$</span>Genre))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_common_r, <span class="fu">aes</span>(<span class="at">x =</span> Metascore, <span class="at">y =</span> Rating)) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"firebrick"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Genre, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Rating vs Metascore by Genre"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Metascore"</span>, <span class="at">y =</span> <span class="st">"IMDB Rating"</span>) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-3-output-1.png" width="1143" height="569" class="figure-img"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>There are a couple of things happening here that are worth pointing out.</p>
-<p>First, I’m using a <strong>boxplot instead of simply calculating the average rating</strong>. An average would give us one number for each genre, but it wouldn’t tell us much about how those ratings are distributed.</p>
-<p>The boxplot gives us a better idea of the median, the middle 50% of ratings, and the spread of the data. It also makes it easier to spot genres where a few movies have ratings that are quite different from the rest.</p>
-<p>I also filtered out genres that appear fewer than 10 times in the dataset. There isn’t much value in comparing a genre represented by only a handful of movies against one represented by hundreds of movies. The cutoff of 10 is somewhat arbitrary, but it keeps the visualization focused on genres with at least a reasonable number of observations.</p>
-<p>The plot also makes the variation within genres more interesting than simply comparing their medians. Some genres have a relatively tight distribution of ratings, while others have movies spread across a much wider range.</p>
-<p>So, rather than trying to declare a single “best” genre from this plot, I’d treat it as a way of seeing how different genres are represented in this particular IMDB dataset.</p>
+<p>This is probably the most useful part of the analysis.</p>
+<p>Each point represents a movie, with its Metascore on the x-axis and its IMDB Rating on the y-axis.</p>
+<p>The fitted line gives us a rough sense of the direction of the relationship, while the individual points show how much variation there is around it.</p>
+<p>If the line slopes upward, that means higher Metascores tend to be associated with higher IMDB ratings for that genre.</p>
+<p>And, as expected, the points aren’t sitting neatly on the line.</p>
+<p>That’s important.</p>
+<p>Even if critics and audiences generally agree, they clearly don’t agree on every movie. There are movies that critics rate relatively highly while audiences are less enthusiastic about them, and presumably the reverse happens too.</p>
+<p>The faceting makes the comparison between genres more interesting.</p>
+<p>Instead of asking whether critics and audiences agree <strong>in general</strong>, we can ask whether that agreement appears stronger or weaker in different parts of the dataset.</p>
+<p>That said, I wouldn’t read too much into small differences between the genre panels. We’re working with a relatively small and curated dataset, and a correlation doesn’t tell us <em>why</em> the relationship exists.</p>
+<p>It also doesn’t mean that critics’ scores somehow determine audience ratings, or vice versa.</p>
+<p>It just tells us that the two measurements tend to move together to some degree.</p>
 </section>
-<section id="top-grossing-movies-across-each-year" class="level2">
-<h2 class="anchored" data-anchor-id="top-grossing-movies-across-each-year">Top Grossing Movies across each Year</h2>
-<p><strong>For each year, which movie had the highest reported revenue?</strong></p>
-<p>There is one complication here: some movies don’t have a value recorded for <code>Revenue (Millions)</code>. Since we can’t identify the highest-grossing movie from a missing value, those rows need to be excluded from this particular analysis.</p>
-<div id="e30a2070" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_rev <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Revenue (Millions)'</span>])</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> df_rev.groupby(<span class="st">'Year'</span>)[<span class="st">'Revenue (Millions)'</span>].idxmax()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>top_per_year <span class="op">=</span> df_rev.loc[idx].sort_values(<span class="st">'Year'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.plot(top_per_year[<span class="st">'Year'</span>], top_per_year[<span class="st">'Revenue (Millions)'</span>],</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>         marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Annotate each point with the movie title</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> top_per_year.iterrows():</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    plt.annotate(row[<span class="st">'Title'</span>],</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                 (row[<span class="st">'Year'</span>], row[<span class="st">'Revenue (Millions)'</span>]),</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                 textcoords<span class="op">=</span><span class="st">"offset points"</span>, xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">8</span>),</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                 fontsize<span class="op">=</span><span class="dv">7</span>, rotation<span class="op">=</span><span class="dv">30</span>, ha<span class="op">=</span><span class="st">'left'</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Highest-Grossing Movie by Year'</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Revenue (Millions USD)'</span>)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/cell-4-output-1.png" width="1130" height="569" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>I like this visualization a little more than a simple table because the year-to-year changes become much easier to see.</p>
-<p>There are some fairly dramatic jumps in the revenue of the highest-grossing movie from one year to another. A single blockbuster can pull the top of the chart considerably higher, so the line isn’t really showing a smooth trend in the movie industry. It’s showing how the biggest hit in the dataset changed from year to year.</p>
-<p>The movie titles are also useful here. Without them, we’d just have a line moving up and down with no idea what caused each point.</p>
-<p>One thing that stands out is how much the biggest movies can dominate the numbers. A year with one enormous franchise release can look very different from a year where the highest-grossing movie had a much smaller box office.</p>
+<section id="a-small-pythonr-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="a-small-pythonr-experiment">A small Python–R experiment</h2>
+<p>Sometimes it’s useful to have more than one way of saying the same thing.</p>
+<p>This analysis was also an excuse to try something I’ve been meaning to play around with: using Python and R together rather than treating them as completely separate environments.</p>
+<p>The workflow ended up being fairly straightforward.</p>
+<p>Python handled the data loading, cleaning, reshaping, and correlation calculation. Then <code>reticulate</code> exposed those Python objects to R, where I used <code>ggplot2</code> to build the visualization.</p>
+<p>There is obviously nothing stopping me from doing the entire analysis in either language.</p>
+<p>But that’s not really the point.</p>
+<p>One of the nice things about working with multiple tools is that you start noticing that the underlying ideas are much more important than the syntax.</p>
+<p>Grouping data, handling missing values, calculating a correlation, and visualizing a relationship are the same analytical steps whether I’m writing them in Python or R.</p>
+<p>The syntax just happens to be different.</p>
 </section>
-<section id="a-few-things-i-took-away" class="level2">
-<h2 class="anchored" data-anchor-id="a-few-things-i-took-away">A few things I took away</h2>
-<p>This was a relatively simple analysis, but there were a few useful pandas lessons hiding inside it.</p>
-<p>The first was <code>explode()</code>. Whenever a column contains multiple values packed into a single cell, it can be useful to turn those values into separate rows before doing any grouping or aggregation.</p>
-<p>The second was the importance of looking at the <strong>distribution</strong>, rather than immediately reducing everything to an average. The genre analysis is much more informative as a boxplot because we can see variation between movies, not just one summary statistic.</p>
-<p>And finally, there is the slightly less exciting but probably more important part of data analysis: <strong>being careful about what the data actually represents</strong>.</p>
-<p>It’s easy to look at a chart and come away with a strong conclusion. But in this case, we’re working with a curated dataset, movies can belong to multiple genres, and some revenue values are missing. Those details don’t make the analysis useless; they just determine what conclusions we can reasonably draw from it.</p>
-<p>Which is probably a good reminder that the hardest part of data analysis isn’t always writing the code.</p>
-<p>Sometimes it’s deciding what the code is actually telling you.</p>
+<section id="what-i-took-away" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-took-away">What I took away</h2>
+<p>The most interesting part of this analysis wasn’t really the correlation itself.</p>
+<p>It was the reminder that <strong>two numbers measuring the same thing from different perspectives don’t necessarily agree perfectly</strong>.</p>
+<p>Critics and audiences are answering slightly different questions.</p>
+<p>A critic’s score reflects professional reviews aggregated into the Metascore, while an IMDB rating reflects the opinions of the site’s users. Even when they’re evaluating the same movie, they’re not necessarily evaluating it in exactly the same way.</p>
+<p>The genre breakdown makes that difference a little more visible.</p>
+<p>And from a data-analysis perspective, this was a nice little exercise in going from:</p>
+<p><strong>a question → some cleaning → a statistic → a visualization → a more careful interpretation.</strong></p>
+<p>Which, at least for now, is probably more useful than trying to squeeze some grand conclusion out of 1,000 movies.</p>
 
 
 </section>

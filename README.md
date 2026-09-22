@@ -23,6 +23,8 @@ The site combines a personal homepage and About page with blog posts covering ex
 │   │   └── media/
 │   ├── python-post/
 │   │   └── index.qmd
+│   ├── python-r-post/
+│   │   └── index.qmd
 │   ├── r-post/
 │   │   └── index.qmd
 ├── images/                     # Site-wide images
@@ -92,16 +94,17 @@ Current posts include:
 - `posts/first-weeks/` — *My First Week in MDS*
 - `posts/vancouver-day-out/` — *A Perfect Day in Vancouver*
 - `posts/python-post/` — *IMDB Movie Analysis using Python*
+- `posts/python-r-post/` — *IMDB Movie Analysis using Python & R*
 - `posts/r-post/` — *IMDB Movie Analysis using R*
 
 Post-specific images and video are kept alongside the post source in its `media/` directory.
 
 ## Data
 
-`posts/python-post/index.qmd` and `posts/r-post/index.qmd` both use the same IMDB dataset:
+`posts/python-post/index.qmd`, `posts/r-post/index.qmd` and `posts/python-r-post/index.qmd` both use the same IMDB dataset:
 
 ```text
-https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDBTop100.csv
+https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv
 ```
 
 Both posts read from this URL directly at render time. If there is no network access, they fall back to the local copy kept in `data/` instead, so the site can still render offline.
@@ -133,11 +136,14 @@ uv sync
 #### 2. Install R dependencies
 Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv'); renv::restore(prompt = FALSE)"
 
-#### 3. Render the site
-uv run quarto render
+#### 3. Activate the virtual environment
+source .venv/bin/activate
 
-#### 4. Preview the site locally
-uv run quarto preview
+#### 4. Render the site
+quarto render
+
+#### 5. Preview the site locally
+quarto preview
 \```
 
 Because `_quarto.yml` specifies:
@@ -157,7 +163,7 @@ For a no-terminal option, two scripts in the repo root run all four steps above 
   - If macOS says the file *"could not be executed because you do not have appropriate access privileges"*, the executable bit was stripped during download (common after downloading via browser/Slack/zip). Fix it once in Terminal:
 ```bash
     cd /path/to/mds-website
-    chmod +x build-mac.command
+    chmod +x build-macos.command
 ```  
   Then double-click the file again.
 

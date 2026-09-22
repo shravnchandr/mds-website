@@ -12,21 +12,25 @@ echo " Building personal website"
 echo "=============================================="
 
 echo ""
-echo "[1/4] Installing Python dependencies (uv sync)..."
+echo "[1/5] Installing Python dependencies (uv sync)..."
 uv sync
 
 echo ""
-echo "[2/4] Installing R dependencies (renv::restore)..."
+echo "[2/5] Installing R dependencies (renv::restore)..."
 Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv'); renv::restore(prompt = FALSE)"
 
 echo ""
-echo "[3/4] Rendering site (quarto render)..."
-uv run quarto render
+echo "[3/5] Activating Python virtual environment (source .venv/bin/activate)..."
+source .venv/bin/activate
 
 echo ""
-echo "[4/4] Starting local preview (quarto preview)..."
+echo "[5/5] Rendering site (quarto render)..."
+quarto render
+
+echo ""
+echo "[5/5] Starting local preview (quarto preview)..."
 echo "Press Ctrl+C in this window to stop the preview server."
-uv run quarto preview
+quarto preview
 
 echo ""
 echo "Done. Press Enter to close this window..."
