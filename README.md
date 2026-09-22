@@ -31,8 +31,12 @@ The site combines a personal homepage and About page with blog posts covering ex
 │   └── profile.jpeg
 ├── m3e.css                     # Material 3 Expressive-inspired site styling
 ├── styles.css                  # Additional/source stylesheet
-├── uvr.toml                    # uvr project configuration
-├── uvr.lock                    # Locked uvr environment/dependencies
+├── setup.R.                    # Rscript for setting up R packages
+├── renv/                       # R activation
+│   └── activate.R
+├── renv.lock                   # Locked renv environment/dependencies
+├── uv.lock                     # Locked venv environment/dependencies
+├── pyproject.toml              # uv toml for dependencies
 ├── docs/                       # Generated website output
 └── README.md
 ```
@@ -130,19 +134,31 @@ Make changes to the `.qmd`, CSS, image, or media source files rather than editin
 Set up the environment and build the site:
 
 \```bash
-#### 1. Install Python dependencies
+# 1. Install Python dependencies
 uv sync
 
-#### 2. Install R dependencies
-Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv'); renv::restore(prompt = FALSE)"
+# 2. Install R dependencies
+Rscript setup.R
+\```
 
-#### 3. Activate the virtual environment
+<details>
+<summary>No <code>setup.R</code>? Use the inline command for your shell instead</summary>
+
+**macOS/Linux (bash or zsh):**
+```bash
+Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", repos = "https://cloud.r-project.org"); renv::restore(prompt = FALSE)'
+```
+...
+</details>
+
+\```bash
+# 3. Activate the virtual environment
 source .venv/bin/activate
 
-#### 4. Render the site
+# 4. Render the site
 quarto render
 
-#### 5. Preview the site locally
+# 5. Preview the site locally
 quarto preview
 \```
 

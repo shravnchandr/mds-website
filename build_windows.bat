@@ -15,7 +15,7 @@ if errorlevel 1 goto :error
 
 echo.
 echo [2/5] Installing R dependencies (renv::restore)...
-call Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv'); renv::restore(prompt = FALSE)"
+call Rscript setup.R
 if errorlevel 1 goto :error
 
 echo.
@@ -25,13 +25,13 @@ if errorlevel 1 goto :error
 
 echo.
 echo [4/5] Rendering site (quarto render)...
-call uv run quarto render
+call quarto render
 if errorlevel 1 goto :error
 
 echo.
 echo [5/5] Starting local preview (quarto preview)...
 echo Press Ctrl+C in this window to stop the preview server.
-call uv run quarto preview
+call quarto preview
 
 goto :end
 

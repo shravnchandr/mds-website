@@ -17,14 +17,14 @@ uv sync
 
 echo ""
 echo "[2/5] Installing R dependencies (renv::restore)..."
-Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv'); renv::restore(prompt = FALSE)"
+Rscript setup.R
 
 echo ""
 echo "[3/5] Activating Python virtual environment (source .venv/bin/activate)..."
 source .venv/bin/activate
 
 echo ""
-echo "[5/5] Rendering site (quarto render)..."
+echo "[4/5] Rendering site (quarto render)..."
 quarto render
 
 echo ""
