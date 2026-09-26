@@ -6,6 +6,7 @@ date: 2026-09-23
 ---
 
 
+
 I've been playing around with the IMDB dataset again, this time with both Python and R.
 
 The question this time is a little more interesting than simply asking which movies have the highest ratings:
@@ -41,6 +42,7 @@ use_virtualenv(here(".venv"), required = TRUE)
 ```
 
 
+
 The dataset is available online, but I've also kept a local copy as a fallback. That way the analysis doesn't completely fall apart if the remote CSV happens to be unavailable.
 
 ```{python}
@@ -59,6 +61,7 @@ df.head()
 ```
 
 
+
 There's something mildly satisfying about being able to use Python and R in the same notebook.
 
 I'm still figuring out exactly where I prefer one over the other, so for now this is partly an analysis and partly an excuse to experiment with the tooling.
@@ -75,6 +78,7 @@ genre_counts = df_long['Genre'].value_counts()
 common_genres = genre_counts[genre_counts >= 20].index
 df_common = df_long[df_long['Genre'].isin(common_genres)]
 ```
+
 
 
 There's another small transformation here that we've seen before.
@@ -101,6 +105,7 @@ corr_by_genre
 ```
 
 
+
 The correlation coefficient gives us a compact way of describing how strongly two variables move together.
 
 A value close to **1** means that higher Metascores tend to be associated with higher IMDB ratings. A value close to **0** means that there isn't much of a linear relationship. And a negative value would indicate that the two tend to move in opposite directions.
@@ -112,6 +117,8 @@ I'd much rather see the actual movies represented as points.
 So this is where R comes back in.
 
 ```{r}
+#| message: false
+#| warning: false
 #| label: fig-rating-metascore
 #| fig-cap: "Relationship between IMDb rating and Metascore across movie genres."
 
@@ -129,6 +136,7 @@ ggplot(df_common_r, aes(x = Metascore, y = Rating)) +
        x = "Metascore", y = "IMDB Rating") +
   theme_minimal(base_size = 9)
 ```
+
 
 
 This is probably the most useful part of the analysis.
