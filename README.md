@@ -117,7 +117,15 @@ The stylesheet is designed to work on top of the existing Quarto theme rather th
 
 Make changes to the `.qmd`, CSS, image, or media source files rather than editing files inside `docs/`.
 
-### Required Software
+Because `_quarto.yml` specifies:
+
+```yaml
+output-dir: docs
+```
+
+the generated website is written to `docs/`.
+
+### Required Software and Setup
 1. [uv](https://docs.astral.sh/uv/) 0.12.10
 2. [Quarto](https://quarto.org/) 1.10.18
 3. [R](https://www.r-project.org/) 4.6.1
@@ -127,7 +135,7 @@ Set up the environment and build the site:
 #### 0. Clone the repository
 ```bash
 git clone https://github.com/shravnchandr/mds-website.git
-cd path/to/mds-website
+cd mds-website
 ```
 
 #### 1. Install Python dependencies
@@ -155,13 +163,6 @@ quarto render
 quarto preview
 ```
 
-Because `_quarto.yml` specifies:
-
-```yaml
-output-dir: docs
-```
-
-the generated website is written to `docs/`.
 
 ### Quick build (one click)
  
