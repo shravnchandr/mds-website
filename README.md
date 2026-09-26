@@ -117,6 +117,11 @@ The stylesheet is designed to work on top of the existing Quarto theme rather th
 
 Make changes to the `.qmd`, CSS, image, or media source files rather than editing files inside `docs/`.
 
+### Required Software
+1. [uv](https://docs.astral.sh/uv/) 0.12.10
+2. [Quarto](https://quarto.org/) 1.10.18
+3. [R](https://www.r-project.org/) 4.6.1
+
 Set up the environment and build the site:
 
 #### 0. Clone the repository
@@ -174,6 +179,7 @@ For a no-terminal option, two scripts in the repo root run all four steps above 
 - **Windows:** double-click `build_windows.bat`
   - First run only: if SmartScreen appears, click **More info** → **Run anyway**.
   - ⚠️ Not yet verified on an actual Windows machine — the steps mirror the Mac script, but if you hit issues, please open an issue or fix and PR.
+
 Both scripts require `uv` and `R`/`Rscript` to already be installed and available on PATH. The script installs dependencies, renders the site, and starts the local preview server; close the terminal window (or press `Ctrl+C`) to stop the preview.
 
 ### Generated output
