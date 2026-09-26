@@ -93,14 +93,6 @@ It also links visitors to the About page and blog.
 
 Blog posts live under `posts/`. Each post has its own directory containing an `index.qmd` source file and any media used by that post.
 
-Current posts include:
-
-- `posts/first-weeks/` — *My First Week in MDS*
-- `posts/vancouver-day-out/` — *A Perfect Day in Vancouver*
-- `posts/python-post/` — *IMDB Movie Analysis using Python*
-- `posts/python-r-post/` — *IMDB Movie Analysis using Python & R*
-- `posts/r-post/` — *IMDB Movie Analysis using R*
-
 Post-specific images and video are kept alongside the post source in its `media/` directory.
 
 ## Data
@@ -117,15 +109,9 @@ Both posts read from this URL directly at render time. If there is no network ac
 
 The site uses `m3e.css` for a Material 3 Expressive-inspired visual language, **created with help of ChatGPT**.
 
-The design direction is intentionally more playful than a standard Material implementation, using:
+The design direction is intentionally more playful than a standard Material implementation/
 
-- Ocean-inspired colors
-- Expressive typography and contrasting type sizes
-- Organic and asymmetric shapes
-- Light and dark theme support
-- Subtle motion and hover states
-
-The stylesheet is designed to work on top of the existing Quarto/Cosmo/brand theme rather than replacing Quarto's underlying framework.
+The stylesheet is designed to work on top of the existing Quarto theme rather than replacing Quarto's underlying framework.
 
 ## Local development
 
@@ -133,40 +119,42 @@ Make changes to the `.qmd`, CSS, image, or media source files rather than editin
 
 Set up the environment and build the site:
 
-\```bash
-# 1. Install Python dependencies
-uv sync
-
-# 2. Install R dependencies
-Rscript setup.R
-\```
-
-<details>
-<summary>No <code>setup.R</code>? Use the inline command for your shell instead</summary>
-
-**macOS/Linux (bash or zsh):**
+#### 0. Clone the repository
 ```bash
-Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", repos = "https://cloud.r-project.org"); renv::restore(prompt = FALSE)'
+git clone https://github.com/shravnchandr/mds-website.git
+cd path/to/mds-website
 ```
-...
-</details>
 
-\```bash
-# 3. Activate the virtual environment
+#### 1. Install Python dependencies
+```bash
+uv sync
+```
+
+#### 2. Install R dependencies
+```bash
+Rscript setup.R
+```
+
+#### 3. Activate the virtual environment
+```bash
 source .venv/bin/activate
+```
 
-# 4. Render the site
+#### 4. Render the site
+```bash
 quarto render
+```
 
-# 5. Preview the site locally
+#### 5. Preview the site locally
+```bash
 quarto preview
-\```
+```
 
 Because `_quarto.yml` specifies:
 
-\```yaml
+```yaml
 output-dir: docs
-\```
+```
 
 the generated website is written to `docs/`.
 
@@ -174,16 +162,16 @@ the generated website is written to `docs/`.
  
 For a no-terminal option, two scripts in the repo root run all four steps above automatically:
  
-- **macOS:** double-click `build-macos.command`
+- **macOS:** double-click `build_macos.command`
   - First run only: right-click the file → **Open**, to bypass Gatekeeper's unidentified-developer warning.
   - If macOS says the file *"could not be executed because you do not have appropriate access privileges"*, the executable bit was stripped during download (common after downloading via browser/Slack/zip). Fix it once in Terminal:
 ```bash
     cd /path/to/mds-website
-    chmod +x build-macos.command
+    chmod +x build_macos.command
 ```  
   Then double-click the file again.
 
-- **Windows:** double-click `build-windows.bat`
+- **Windows:** double-click `build_windows.bat`
   - First run only: if SmartScreen appears, click **More info** → **Run anyway**.
   - ⚠️ Not yet verified on an actual Windows machine — the steps mirror the Mac script, but if you hit issues, please open an issue or fix and PR.
 Both scripts require `uv` and `R`/`Rscript` to already be installed and available on PATH. The script installs dependencies, renders the site, and starts the local preview server; close the terminal window (or press `Ctrl+C`) to stop the preview.
@@ -238,29 +226,6 @@ After adding or editing content, render the site with:
 ```bash
 quarto render
 ```
-
-## Source vs. generated files
-
-A useful mental model for this repository is:
-
-```text
-Source
-  │
-  ├── .qmd pages
-  ├── posts/
-  ├── images/
-  └── CSS
-       │
-       ▼
-   quarto render
-       │
-       ▼
-Generated site
-       │
-       └── docs/
-```
-
-Edit the source files, render the project, and inspect the generated site in `docs/`.
 
 ## Notes
 
