@@ -6,6 +6,7 @@ date: 2026-09-21
 ---
 
 
+
 The following analysis comes from the IMDB dataset, which contains 1,000 movies from 2006–2016, along with information about their genre, rating, number of votes, revenue, and other attributes.
 
 The columns in the dataset are:
@@ -18,8 +19,6 @@ I'm going to look at two fairly simple questions:
 
 1. Do some genres tend to have higher IMDB ratings than others?
 2. What was the highest-grossing movie in each year?
-
-Nothing particularly groundbreaking here. This is mostly an exercise in getting comfortable with pandas, manipulating the data into a form that is useful for analysis, and making plots that are actually readable.
 
 ## Data Reading
 
@@ -40,6 +39,7 @@ except Exception as e:
 df.head()
 ```
 
+
 The dataset is already fairly analysis-friendly, but there is one slightly inconvenient column: `Genre`.
 
 A movie can belong to multiple genres, so instead of having one genre per row, the dataset stores them together as a comma-separated string.
@@ -55,6 +55,9 @@ That is fine for displaying the data, but not ideal if we want to compare rating
 **Among the movies associated with each genre, how are their IMDB ratings distributed?**
 
 ```{python}
+#| label: fig-imdb-rating-genre
+#| fig-cap: "Distribution of IMDb ratings across movie genres"
+
 df['Genre'] = df['Genre'].str.split(',')
 df_exploded = df.explode('Genre')
 df_exploded['Genre'] = df_exploded['Genre'].str.strip()
@@ -84,9 +87,8 @@ plt.tight_layout()
 plt.show()
 ```
 
-There are a couple of things happening here that are worth pointing out.
 
-First, I'm using a **boxplot instead of simply calculating the average rating**. An average would give us one number for each genre, but it wouldn't tell us much about how those ratings are distributed.
+I'm using a **boxplot instead of simply calculating the average rating**. An average would give us one number for each genre, but it wouldn't tell us much about how those ratings are distributed.
 
 The boxplot gives us a better idea of the median, the middle 50% of ratings, and the spread of the data. It also makes it easier to spot genres where a few movies have ratings that are quite different from the rest.
 
@@ -103,6 +105,9 @@ So, rather than trying to declare a single "best" genre from this plot, I'd trea
 There is one complication here: some movies don't have a value recorded for `Revenue (Millions)`. Since we can't identify the highest-grossing movie from a missing value, those rows need to be excluded from this particular analysis.
 
 ```{python}
+#| label: fig-highest-grossing-year
+#| fig-cap: "Highest-grossing movie in each year from 2007 to 2015."
+
 df_rev = df.dropna(subset=['Revenue (Millions)'])
 
 idx = df_rev.groupby('Year')['Revenue (Millions)'].idxmax()
@@ -126,6 +131,7 @@ plt.ylabel('Revenue (Millions USD)')
 plt.tight_layout()
 plt.show()
 ```
+
 
 I like this visualization a little more than a simple table because the year-to-year changes become much easier to see.
 

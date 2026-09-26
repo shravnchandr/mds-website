@@ -214,11 +214,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Do some genres tend to have higher IMDB ratings than others?</li>
 <li>What was the highest-grossing movie in each year?</li>
 </ol>
-<p>Nothing particularly groundbreaking here. This is mostly an exercise in getting comfortable with pandas, manipulating the data into a form that is useful for analysis, and making plots that are actually readable.</p>
 <section id="data-reading" class="level2">
 <h2 class="anchored" data-anchor-id="data-reading">Data Reading</h2>
 <p>We can start by reading the data using the pandas library:</p>
-<div id="a5065fb9" class="cell" data-execution_count="1">
+<div id="2051a25c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -344,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="rating-distribution-across-genres" class="level2">
 <h2 class="anchored" data-anchor-id="rating-distribution-across-genres">Rating Distribution across Genres</h2>
 <p><strong>Among the movies associated with each genre, how are their IMDB ratings distributed?</strong></p>
-<div id="d0e9adca" class="cell" data-execution_count="2">
+<div id="cell-fig-imdb-rating-genre" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Genre'</span>] <span class="op">=</span> df[<span class="st">'Genre'</span>].<span class="bu">str</span>.split(<span class="st">','</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_exploded <span class="op">=</span> df.explode(<span class="st">'Genre'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_exploded[<span class="st">'Genre'</span>] <span class="op">=</span> df_exploded[<span class="st">'Genre'</span>].<span class="bu">str</span>.strip()</span>
@@ -373,15 +372,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/cell-3-output-1.png" width="1143" height="569" class="figure-img"></p>
+<div id="fig-imdb-rating-genre" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-imdb-rating-genre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-imdb-rating-genre-output-1.png" width="1143" height="569" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-imdb-rating-genre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Distribution of IMDb ratings across movie genres
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>There are a couple of things happening here that are worth pointing out.</p>
-<p>First, I’m using a <strong>boxplot instead of simply calculating the average rating</strong>. An average would give us one number for each genre, but it wouldn’t tell us much about how those ratings are distributed.</p>
+<p>I’m using a <strong>boxplot instead of simply calculating the average rating</strong>. An average would give us one number for each genre, but it wouldn’t tell us much about how those ratings are distributed.</p>
 <p>The boxplot gives us a better idea of the median, the middle 50% of ratings, and the spread of the data. It also makes it easier to spot genres where a few movies have ratings that are quite different from the rest.</p>
 <p>I also filtered out genres that appear fewer than 10 times in the dataset. There isn’t much value in comparing a genre represented by only a handful of movies against one represented by hundreds of movies. The cutoff of 10 is somewhat arbitrary, but it keeps the visualization focused on genres with at least a reasonable number of observations.</p>
 <p>The plot also makes the variation within genres more interesting than simply comparing their medians. Some genres have a relatively tight distribution of ratings, while others have movies spread across a much wider range.</p>
@@ -391,7 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="top-grossing-movies-across-each-year">Top Grossing Movies across each Year</h2>
 <p><strong>For each year, which movie had the highest reported revenue?</strong></p>
 <p>There is one complication here: some movies don’t have a value recorded for <code>Revenue (Millions)</code>. Since we can’t identify the highest-grossing movie from a missing value, those rows need to be excluded from this particular analysis.</p>
-<div id="e30a2070" class="cell" data-execution_count="3">
+<div id="cell-fig-highest-grossing-year" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_rev <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Revenue (Millions)'</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> df_rev.groupby(<span class="st">'Year'</span>)[<span class="st">'Revenue (Millions)'</span>].idxmax()</span>
@@ -415,9 +418,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/cell-4-output-1.png" width="1130" height="569" class="figure-img"></p>
+<div id="fig-highest-grossing-year" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-highest-grossing-year-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-highest-grossing-year-output-1.png" width="1130" height="569" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-highest-grossing-year-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Highest-grossing movie in each year from 2007 to 2015.
+</figcaption>
 </figure>
 </div>
 </div>

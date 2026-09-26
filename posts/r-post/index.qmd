@@ -7,6 +7,7 @@ date: 2026-09-21
 
 
 
+
 The following analysis comes from the IMDB dataset, which contains 1,000 movies from 2006–2016, along with information about their genre, rating, number of votes, revenue, and other attributes.
 
 The columns in the dataset are:
@@ -20,14 +21,13 @@ I'm going to look at two fairly simple questions:
 1. Do different genres tend to have different runtimes?
 2. What was the highest-rated movie in each year?
 
-Nothing particularly groundbreaking here. This is mostly an excuse to spend some time with R and the tidyverse, and to see how some of the same ideas I would normally reach for in Python translate into R.
-
 ## Data Reading
 
 We can start by reading the data using the pandas library:
 
-
 ```{R}
+#| message: false
+#| warning: false
 library(tidyverse)
 
 url <- "https://raw.githubusercontent.com/prasertcbs/basic-dataset/refs/heads/master/IMDB_Movie_1000_Data.csv"
@@ -43,6 +43,7 @@ df <- tryCatch(
 head(df)
 ```
 
+
 The dataset is already in a fairly convenient format, so there isn't a huge amount of cleaning required.
 
 The one column that needs a little attention is `Genre`.
@@ -51,14 +52,15 @@ A movie can belong to more than one genre, so instead of having a single value l
 
 That's perfectly reasonable for a dataset intended for browsing, but it becomes slightly inconvenient when we want to group movies by genre.
 
-So let's separate those values first.
-
 
 ## Runtime Distribution across Genres
 
 **Are some types of movies generally longer than others?**
 
 ```{R}
+#| label: fig-runtime-genre
+#| fig-cap: "Distribution of movie runtimes across genres."
+
 df_long <- df |>
   separate_rows(Genre, sep = ",") |>
   mutate(Genre = str_trim(Genre))
@@ -77,7 +79,6 @@ genre_order <- df_common |>
 df_common <- df_common |>
   mutate(Genre = factor(Genre, levels = genre_order))
 
-
 ggplot(df_common, aes(x = Genre, y = `Runtime (Minutes)`, fill = Genre)) +
   geom_boxplot(alpha = 0.7, show.legend = FALSE) +
   labs(title = "Distribution of Runtime by Genre",
@@ -85,6 +86,7 @@ ggplot(df_common, aes(x = Genre, y = `Runtime (Minutes)`, fill = Genre)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
 
 The first thing I wanted to look at was runtime.
 
@@ -98,8 +100,6 @@ The interesting part of the plot isn't necessarily which genre has the single lo
 
 Some genres have a fairly compact range of runtimes, while others have movies scattered across a much wider range. The median gives us one way of comparing the typical movie, while the boxplot shows us how much variation exists around that typical value.
 
-So this plot gives us a useful overview of how runtime varies across the genres represented in the dataset, without pretending that runtime alone tells us anything particularly profound about a movie.
-
 
 ## Top Rated Movies across each Year
 
@@ -110,6 +110,9 @@ Instead of asking which genre has the highest rating, I'm going to change the qu
 **For each year, which movie had the highest IMDB rating?**
 
 ```{R}
+#| label: fig-highest-rated-year
+#| fig-cap: "Highest-rated movie in each year from 2006 to 2016."
+
 top_per_year <- df |>
   group_by(Year) |>
   slice_max(order_by = Rating, n = 1, with_ties = FALSE) |>
@@ -129,6 +132,7 @@ ggplot(top_per_year, aes(x = Year, y = Rating)) +
   theme_minimal()
 ```
 
+
 This one is a little more straightforward.
 
 `group_by(Year)` lets us consider each year separately, and `slice_max()` then picks the movie with the highest rating within that year.
@@ -138,12 +142,6 @@ I used `with_ties = FALSE` here so that we get exactly one movie per year, even 
 The resulting table is useful on its own, but the plot makes the year-to-year pattern easier to see.
 
 The line isn't really showing a trend in movie quality. It's showing the **maximum rating among the movies present in this dataset for each year**.
-
-That's an important distinction.
-
-We're not looking at every movie released in each year, and we're certainly not measuring the quality of an entire year's movies. We're just asking which movie in this particular dataset had the highest rating for that year.
-
-The labels make the chart a little more interesting because we can connect the numbers back to actual movies. Otherwise we'd just have a line moving between ratings without much context.
 
 It's also worth remembering that the difference between, say, an 8.1 and an 8.2 isn't necessarily meaningful by itself. Ratings are aggregates, and the number of votes, audience composition, and other factors can all affect them.
 

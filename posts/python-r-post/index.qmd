@@ -5,6 +5,7 @@ author: "Shravan Chandra"
 date: 2026-09-23
 ---
 
+
 I've been playing around with the IMDB dataset again, this time with both Python and R.
 
 The question this time is a little more interesting than simply asking which movies have the highest ratings:
@@ -29,12 +30,16 @@ This time I'm using both R and Python.
 R handles the overall setup and visualization, while Python does the initial data manipulation. `reticulate` lets the two environments talk to each other, which means I don't have to choose between them.
 
 ```{r}
+#| message: false
+#| warning: false
+
 library(reticulate)
 library(tidyverse)
 library(here)
 
 use_virtualenv(here(".venv"), required = TRUE)
 ```
+
 
 The dataset is available online, but I've also kept a local copy as a fallback. That way the analysis doesn't completely fall apart if the remote CSV happens to be unavailable.
 
@@ -53,13 +58,12 @@ except Exception as e:
 df.head()
 ```
 
+
 There's something mildly satisfying about being able to use Python and R in the same notebook.
 
 I'm still figuring out exactly where I prefer one over the other, so for now this is partly an analysis and partly an excuse to experiment with the tooling.
 
 ## Rating vs Metascore by Genre
-
-
 
 ```{python}
 df_clean = df.dropna(subset=['Rating', 'Metascore']).copy()
@@ -71,6 +75,7 @@ genre_counts = df_long['Genre'].value_counts()
 common_genres = genre_counts[genre_counts >= 20].index
 df_common = df_long[df_long['Genre'].isin(common_genres)]
 ```
+
 
 There's another small transformation here that we've seen before.
 
@@ -91,7 +96,10 @@ corr_by_genre = (
     .sort_values(ascending=False)
     .reset_index(name='correlation')
 )
+
+corr_by_genre
 ```
+
 
 The correlation coefficient gives us a compact way of describing how strongly two variables move together.
 
@@ -104,6 +112,9 @@ I'd much rather see the actual movies represented as points.
 So this is where R comes back in.
 
 ```{r}
+#| label: fig-rating-metascore
+#| fig-cap: "Relationship between IMDb rating and Metascore across movie genres."
+
 df_common_r   <- py$df_common
 corr_by_genre_r <- py$corr_by_genre %>% as_tibble()
 
@@ -119,25 +130,18 @@ ggplot(df_common_r, aes(x = Metascore, y = Rating)) +
   theme_minimal(base_size = 9)
 ```
 
+
 This is probably the most useful part of the analysis.
 
 Each point represents a movie, with its Metascore on the x-axis and its IMDB Rating on the y-axis.
 
 The fitted line gives us a rough sense of the direction of the relationship, while the individual points show how much variation there is around it.
 
-If the line slopes upward, that means higher Metascores tend to be associated with higher IMDB ratings for that genre.
-
-And, as expected, the points aren't sitting neatly on the line.
-
-That's important.
+If the line slopes upward, that means higher Metascores tend to be associated with higher IMDB ratings for that genre. And, as expected, the points aren't sitting neatly on the line.
 
 Even if critics and audiences generally agree, they clearly don't agree on every movie. There are movies that critics rate relatively highly while audiences are less enthusiastic about them, and presumably the reverse happens too.
 
-The faceting makes the comparison between genres more interesting.
-
 Instead of asking whether critics and audiences agree **in general**, we can ask whether that agreement appears stronger or weaker in different parts of the dataset.
-
-That said, I wouldn't read too much into small differences between the genre panels. We're working with a relatively small and curated dataset, and a correlation doesn't tell us *why* the relationship exists.
 
 It also doesn't mean that critics' scores somehow determine audience ratings, or vice versa.
 
@@ -147,15 +151,9 @@ It just tells us that the two measurements tend to move together to some degree.
 
 Sometimes it's useful to have more than one way of saying the same thing.
 
-This analysis was also an excuse to try something I've been meaning to play around with: using Python and R together rather than treating them as completely separate environments.
-
-The workflow ended up being fairly straightforward.
-
 Python handled the data loading, cleaning, reshaping, and correlation calculation. Then `reticulate` exposed those Python objects to R, where I used `ggplot2` to build the visualization.
 
 There is obviously nothing stopping me from doing the entire analysis in either language.
-
-But that's not really the point.
 
 One of the nice things about working with multiple tools is that you start noticing that the underlying ideas are much more important than the syntax.
 
